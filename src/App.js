@@ -1,3 +1,6 @@
+// New addition
+import React from 'react';
+
 import './App.css';
 import Start from './pages/StartPage/start';
 import Login from './pages/LogInPage/login';
