@@ -1,5 +1,6 @@
-import logo from "../../logo.png"
-import "./signup.css"
+import React from "react";
+import logo from "../../logo.png";
+import "./signup.css";
 
 function SignUp() {
     return (
@@ -7,7 +8,9 @@ function SignUp() {
             <div className="signinTop">
                 <img src={logo} alt="AnimeMania" className="signinLogo" />
             </div>
-            <div>This is the signup page</div>
+            <div className="title">
+                <h1>Sign Up</h1>
+            </div>
         </>
     );
 }
