@@ -1,0 +1,44 @@
+.homeAnimeWrapper {
+    width: 100%;
+    overflow-x: auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+
+.homeAnimeContainer {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.homeAnimeView {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+}
+
+.homeAnime {
+    margin-right: 20px;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.homeAnime img {
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+    height: 225px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.homeAnime p {
+    margin-top: 10px;
+    text-align: center;
+}
