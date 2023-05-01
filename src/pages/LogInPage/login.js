@@ -7,7 +7,17 @@ function Login() {
             <div className="loginTop">
                 <img src={logo} alt="AnimeMania" className="loginLogo" />
             </div>
-            <div>This is the login page</div>
+            <div className="username">
+                <form method="POST" action="/login">
+                    <label>Username:</label>
+                    <input type="text" name="username"></input>
+
+                    <label>Password:</label>
+                    <input type="password" name="password"></input>
+
+                    <button type="submit">Login</button>
+                </form>
+            </div>
         </>
     );
 }
