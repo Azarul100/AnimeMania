@@ -1,3 +1,45 @@
+.homeTop {
+    display: flex;
+    gap: 30vw;
+}
+
+.homeTopText {
+    display: flex;
+    gap: 20px;
+}
+
+.homeLogo {
+    height: 100px;
+    width: 10vw;
+}
+
+.homeTextAnime {
+    color: red;
+    text-decoration: underline;
+    background: none;
+    border: none;
+    font-size: 25px;
+}
+
+.homeTextRec {
+    color: blue;
+    font-weight: normal;
+    background: none;
+    border: none;
+    font-size: 25px;
+}
+
+.homeLO 
+{
+ color: Black;
+ font-weight: normal;
+ background: #f5f5f5;
+ font-size: 30px;
+ height: 75px;
+ width: 100%;
+}
+
+
 .homeAnimeWrapper {
     width: 100%;
     overflow-x: auto;
@@ -15,7 +57,7 @@
 .homeAnimeView {
     display: flex;
     flex-wrap: nowrap;
-    margin-top: 20px;
+    margin-top: -10px;
     margin-bottom: 20px;
     margin-left: calc(-50vw + 50%);
     margin-right: calc(-50vw + 50%);
@@ -27,13 +69,14 @@
     background-color: #f5f5f5;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 225px;
 }
 
 .homeAnime img {
     display: block;
     margin: 0 auto;
-    width: 150px;
-    height: 225px;
+    width: 130px;
+    height: 175px;
     object-fit: cover;
     border-radius: 10px;
 }
@@ -42,3 +85,21 @@
     margin-top: 10px;
     text-align: center;
 }
+
+.homeTextOther {
+    margin: 10px;
+    padding: 5px;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow-y: auto;
+  }
