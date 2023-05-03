@@ -3,6 +3,7 @@ import axios from "axios";
 import logo from "../../logo.png";
 import "./home.css"
 import { Modal } from "@mui/material";
+import ButtonComponent from "../../components/ButtonComponent";
 
 const Home = () => {
     const [animeList, setAnimeList] = useState([]);//Popular Anime
@@ -74,7 +75,7 @@ const Home = () => {
                     <h2>{selectedAnime?.attributes?.canonicalTitle}</h2>
                     <p>{selectedAnime?.attributes?.synopsis}</p>
                     <br/>
-                    <button className="homeModalButton">Add to Watchlist</button>
+                    <div className="homeBtnArea"><ButtonComponent className="homeModalButton">Add to Watchlist</ButtonComponent></div>
                 </div>
             </Modal>
             <br />
@@ -97,7 +98,7 @@ const Home = () => {
                     <h2>{selectedAnime?.attributes?.canonicalTitle}</h2>
                     <p>{selectedAnime?.attributes?.synopsis}</p>
                     <br/>
-                    <button className="homeModalButton">Add to Watchlist</button>
+                    <div className="homeBtnArea"><ButtonComponent className="homeModalButton">Add to Watchlist</ButtonComponent></div>
                 </div>
             </Modal>
             <br />

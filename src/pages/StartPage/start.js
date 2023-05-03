@@ -1,8 +1,7 @@
 import React from "react";
 import logo from "../../logo.png";
-import Login from "../LogInPage/login";
-import SignUp from "../SignUpPage/signup";
 import "./start.css"
+import ButtonComponent from "../../components/ButtonComponent";
 
 function Start() {
     const LoginPage = () => {
@@ -20,10 +19,10 @@ function Start() {
                 <h1>Discover New Anime</h1>
             </div>
             <div className="loginBtn">
-                <button class="button" onClick={LoginPage}>Returning User? Login</button>
+                <ButtonComponent onClick={LoginPage}>Returning User? Login</ButtonComponent>
             </div>
             <div className="signupBtn">
-            <button class="button" onClick={SignupPage}>New User? Signup</button>
+            <ButtonComponent onClick={SignupPage}>New User? Signup</ButtonComponent>
             </div>
         </>
     );

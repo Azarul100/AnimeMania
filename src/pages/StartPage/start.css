@@ -24,17 +24,3 @@
     margin-top: 2%;
 }
 
-.button {
-    border: none;
-    border-radius: 12px;
-    background-color: rgb(196, 191, 191);
-    color: white;
-    width: 32%;
-    padding: 15px 30px;
-    font-size: 20px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.button:hover {
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}
