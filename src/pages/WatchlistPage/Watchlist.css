@@ -1,22 +1,22 @@
-.recTop
+.wlTop
 {
     display: flex;
     gap: 415px;
 }
 
-.recTopText
+.wlTopText
 {
     display: flex;
     gap: 15px;
 }
 
-.recLogo
+.wlLogo
 {
     height: 100px;
     width: 150px;
 }
 
-.recTextAnime
+.wlTextAnime
 {
     color: black;
     font-weight: normal;
@@ -25,25 +25,25 @@
     font-size: 20px;
 }
 
-.recTextRec 
+.wlTextRec 
 {
+    color: black;
+    background: none;
+    border: none;
+    font-size: 20px;
+}
+
+.wlTextWL {
     color: red;
-    text-decoration: underline;
+    font-weight: normal;
     background: none;
     border: none;
     font-size: 25px;
+    text-decoration: underline;
     font-weight: bold;
 }
 
-.recTextWL {
-    color: black;
-    font-weight: normal;
-    background: none;
-    border: none;
-    font-size: 20px;
-}
-
-.recLO 
+.wlLO 
 {
     color: Black;
     font-weight: normal;
@@ -53,14 +53,19 @@
     width: 100%;
 }
 
-.recButtonArea
+.wlButtonArea
 {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.recLine {
+.wlLine {
     border-top: 1px solid black;
     width: 100%;
   }
+
+.wlIntroText
+{
+    margin: 20px;
+}

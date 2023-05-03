@@ -1,16 +1,16 @@
 .homeTop {
     display: flex;
-    gap: 30vw;
+    gap: 430px;
 }
 
 .homeTopText {
     display: flex;
-    gap: 20px;
+    gap: 15px;
 }
 
 .homeLogo {
     height: 100px;
-    width: 10vw;
+    width: 150px;
 }
 
 .homeTextAnime {
@@ -19,14 +19,24 @@
     background: none;
     border: none;
     font-size: 25px;
+    font-weight: bold;
 }
 
 .homeTextRec {
-    color: blue;
+    color: black;
     font-weight: normal;
     background: none;
     border: none;
-    font-size: 25px;
+    font-size: 20px;
+
+}
+
+.homeTextWL {
+    color: black;
+    font-weight: normal;
+    background: none;
+    border: none;
+    font-size: 20px;
 }
 
 .homeLO 

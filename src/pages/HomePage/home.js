@@ -19,6 +19,10 @@ const Home = () => {
         window.location.href = '/';
     };
 
+    const wlPage = () => {
+        window.location.href = '/watchlist';
+    };
+
     useEffect(() => {
         const fetchAnime = async () => {
             const result = await axios(
@@ -53,6 +57,7 @@ const Home = () => {
                 <div className="homeTopText">
                     <button className="homeTextAnime">Anime</button>
                     <button onClick={recPage} className="homeTextRec">Recommendations</button>
+                    <button onClick = {wlPage} className="homeTextWL">Watchlist</button>
                 </div>
                 <div className="homeButtonArea"><button onClick={startPage} className="homeLO">Log out</button></div>
             </div>
