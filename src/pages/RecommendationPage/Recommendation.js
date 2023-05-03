@@ -24,7 +24,7 @@ const Recommend = () => {
             <br/>
             <div className ="recLine"></div>
             <br/>
-            <h2>To find a recommendation based off an anime type /"anime-name" in the url {"(Ex: /recommendation/naruto)"}</h2>{/*Currently not implemented yet*/}
+            <h2>To find a recommendation based off an anime add /"anime name" in the url {"(Ex: /recommendation/naruto)"}</h2>{/*Currently not implemented yet*/}
         </>
     );
 };
