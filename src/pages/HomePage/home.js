@@ -8,6 +8,7 @@ import ButtonComponent from "../../components/ButtonComponent";
 const Home = () => {
     const [animeList, setAnimeList] = useState([]);//Popular Anime
     const [animeList2, setAnimeList2] = useState([]);//Trending Anime
+    const [animeList3, setAnimeList3] = useState([]);//Random Anime
     const [selectedAnime, setSelectedAnime] = useState(null);
 
     const recPage = () => {
@@ -38,6 +39,13 @@ const Home = () => {
         fetchAnime2();
     }, []);
 
+    useEffect(() => {
+        const offset = Math.floor(Math.random() * 100);
+        fetch(`https://kitsu.io/api/edge/anime?page[limit]=10&page[offset]=${offset}&sort=-averageRating`)
+          .then(response => response.json())
+          .then(data => setAnimeList3(data.data.filter(anime => anime.attributes.synopsis && anime.attributes.canonicalTitle !== "deleted")));
+  }, []);
+
     return (
         <>
             <div className="homeTop">
@@ -46,14 +54,15 @@ const Home = () => {
                     <button className="homeTextAnime">Anime</button>
                     <button onClick={recPage} className="homeTextRec">Recommendations</button>
                 </div>
-                <button onClick={startPage} className="homeLO">Log out</button>
+                <div className="homeButtonArea"><button onClick={startPage} className="homeLO">Log out</button></div>
             </div>
             <br />
             <div>
+            <div className ="homeLine"></div>
                 <h1>Welcome Username</h1>
                 <h2>Member Since</h2>
             </div>
-            <br />
+            <div className ="homeLine"></div>
             <br /><br /><br />
             <h3 className="homeTextOther">Popular</h3>
 
@@ -102,7 +111,28 @@ const Home = () => {
                 </div>
             </Modal>
             <br />
-            <h3 className="homeTextOther">Watchlist</h3>
+            <h3 className="homeTextOther">Random</h3>
+            <div className="homeAnimeWrapper">
+                <div className="homeAnimeContainer">
+                    <br />
+                    <div className="homeAnimeView">
+                        {animeList3.map((anime) => (
+                            <div onClick={() => setSelectedAnime(anime)} className="homeAnime" key={anime.id}>
+                                <img src={anime.attributes.posterImage.small} alt={anime.attributes.canonicalTitle} />
+                                <p>{anime.attributes.canonicalTitle}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+            <Modal open={selectedAnime !== null} onClose={() => setSelectedAnime(null)}>
+                <div className="modal">
+                    <h2>{selectedAnime?.attributes?.canonicalTitle}</h2>
+                    <p>{selectedAnime?.attributes?.synopsis}</p>
+                    <br/>
+                    <div className="homeBtnArea"><ButtonComponent className="homeModalButton">Add</ButtonComponent></div>
+                </div>
+            </Modal>
         </>
 
     );
