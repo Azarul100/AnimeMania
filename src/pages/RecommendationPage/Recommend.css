@@ -1,18 +1,19 @@
 .recTop
 {
     display: flex;
-    gap: 415px;
+    /* gap: 415px; */
+    justify-content: space-between;
 }
 
 .recTopText
 {
     display: flex;
-    gap: 15px;
+    gap: 30px;
+    margin-top: 50px;
 }
 
 .recLogo
 {
-    height: 100px;
     width: 150px;
 }
 
@@ -22,17 +23,26 @@
     font-weight: normal;
     background: none;
     border: none;
-    font-size: 20px;
+    font-size: 25px;
+}
+
+.recTextAnime :hover {
+    cursor: pointer;
 }
 
 .recTextRec 
 {
-    color: red;
+    color: #B81413;
     text-decoration: underline;
     background: none;
     border: none;
     font-size: 25px;
     font-weight: bold;
+    cursor: pointer;
+}
+
+.recTextRec :hover {
+    cursor: pointer;
 }
 
 .recTextWL {
@@ -40,7 +50,11 @@
     font-weight: normal;
     background: none;
     border: none;
-    font-size: 20px;
+    font-size: 25px;
+}
+
+.recTextWL :hover {
+    cursor: pointer;
 }
 
 .recLO 
@@ -51,6 +65,7 @@
     font-size: 20px;
     height: 50px;
     width: 100%;
+    border-radius: 8%;
 }
 
 .recButtonArea
@@ -58,6 +73,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 20px;
+}
+
+.recButtonArea :hover {
+    cursor: pointer;
 }
 
 .recLine {

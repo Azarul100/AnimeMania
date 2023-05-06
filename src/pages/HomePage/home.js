@@ -7,23 +7,11 @@ import ButtonComponent from "../../components/ButtonComponent";
 import { Link } from 'react-router-dom';
 
 const Home = () => {
-    const [animeList, setAnimeList] = useState([]);//Popular Anime
-    const [animeList2, setAnimeList2] = useState([]);//Trending Anime
-    const [animeList3, setAnimeList3] = useState([]);//Random Anime
+    const [animeList, setAnimeList] = useState([]);     //Popular Anime
+    const [animeList2, setAnimeList2] = useState([]);   //Trending Anime
+    const [animeList3, setAnimeList3] = useState([]);   //Random Anime
     const [selectedAnime, setSelectedAnime] = useState(null);
     const [error, setError] = useState(null);
-
-    // const recPage = () => {
-    //     window.location.href = '/recommendation';
-    // };
-
-    // const startPage = () => {
-    //     window.location.href = '/';
-    // };
-
-    // const wlPage = () => {
-    //     window.location.href = '/watchlist';
-    // };
 
     useEffect(() => {
         const fetchAnime = async () => {
