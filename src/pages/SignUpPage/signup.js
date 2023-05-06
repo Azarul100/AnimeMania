@@ -13,7 +13,7 @@ function SignUp() {
         <div className="formGroup">
           <input
             type="text"
-            placeholder="New Username / Email"
+            placeholder="New Username / Email" 
             className="textInput"
           />
         </div>
