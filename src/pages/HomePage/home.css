@@ -1,25 +1,28 @@
 .homeTop {
     display: flex;
-    gap: 430px;
+    /* gap: 430px; */
+    justify-content: space-between;
 }
 
 .homeTopText {
     display: flex;
-    gap: 15px;
+    gap: 30px;
+    margin-top: 30px;
+    align-items: center;
 }
 
 .homeLogo {
-    height: 100px;
     width: 150px;
 }
 
 .homeTextAnime {
-    color: red;
+    color: #B81413;
     text-decoration: underline;
     background: none;
     border: none;
     font-size: 25px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .homeTextRec {
@@ -27,8 +30,8 @@
     font-weight: normal;
     background: none;
     border: none;
-    font-size: 20px;
-
+    font-size: 25px;
+    cursor: pointer;
 }
 
 .homeTextWL {
@@ -36,17 +39,19 @@
     font-weight: normal;
     background: none;
     border: none;
-    font-size: 20px;
+    font-size: 25px;
+    cursor: pointer;
 }
 
 .homeLO 
 {
- color: Black;
- font-weight: normal;
- background: #f5f5f5;
- font-size: 20px;
- height: 50px;
- width: 100%;
+    color: Black;
+    font-weight: normal;
+    background: #f5f5f5;
+    font-size: 20px;
+    height: 50px;
+    width: 100%;
+    border-radius: 8%;
 }
 
 .homeButtonArea
@@ -54,8 +59,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 20px;
 }
 
+.homeButtonArea :hover {
+    cursor: pointer;
+}
 
 .homeAnimeWrapper {
     width: 100%;
@@ -64,6 +73,7 @@
     box-sizing: border-box;
     display: flex;
     justify-content: center;
+    margin-left: 30px;
 }
 
 .homeAnimeContainer {
@@ -89,6 +99,10 @@
     height: 230px;
 }
 
+.homeAnime :hover {
+    cursor: pointer;
+}
+
 .homeAnime img {
     display: block;
     margin: 0 auto;
@@ -106,6 +120,9 @@
 .homeTextOther {
     margin: 10px;
     padding: 5px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 25px;
+    margin-left: 20px;
 }
 
 .modal {
@@ -133,3 +150,38 @@
     width: 100%;
   }
   
+  .userInfo {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 20px;
+  }
+
+  .wlcText {
+    margin-left: 20px;
+  }
+
+  .welcome {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 40px;
+  }
+
+  .discover {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 30px;
+  }
+
+  .ultimate {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+  }
+
+  .welcome1 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 40px;
+    text-align: end;
+  }
+
+  .member {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 25px;
+  }

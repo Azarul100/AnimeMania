@@ -4,25 +4,14 @@ import logo from "../../logo.png";
 import "./home.css"
 import { Modal } from "@mui/material";
 import ButtonComponent from "../../components/ButtonComponent";
+import { Link } from 'react-router-dom';
 
 const Home = () => {
-    const [animeList, setAnimeList] = useState([]);//Popular Anime
-    const [animeList2, setAnimeList2] = useState([]);//Trending Anime
-    const [animeList3, setAnimeList3] = useState([]);//Random Anime
+    const [animeList, setAnimeList] = useState([]);     //Popular Anime
+    const [animeList2, setAnimeList2] = useState([]);   //Trending Anime
+    const [animeList3, setAnimeList3] = useState([]);   //Random Anime
     const [selectedAnime, setSelectedAnime] = useState(null);
     const [error, setError] = useState(null);
-
-    const recPage = () => {
-        window.location.href = '/recommendation';
-    };
-
-    const startPage = () => {
-        window.location.href = '/';
-    };
-
-    const wlPage = () => {
-        window.location.href = '/watchlist';
-    };
 
     useEffect(() => {
         const fetchAnime = async () => {
@@ -68,22 +57,50 @@ const Home = () => {
     return (
         <>
             <div className="homeTop">
-                <img src={logo} alt="AnimeMania" className="homeLogo" />
+                <img src={logo} alt="AnimeMania" className="homeLogo"/>
                 <div className="homeTopText">
-                    <button className="homeTextAnime">Anime</button>
-                    <button onClick={recPage} className="homeTextRec">Recommendations</button>
-                    <button onClick = {wlPage} className="homeTextWL">Watchlist</button>
+                    <Link to="/home">
+                        <button className="homeTextAnime">Anime</button>
+                    </Link>
+                    <Link to="/recommendation">
+                        <button className="homeTextRec">Recommendations</button>
+                    </Link>
+                    <Link to="/watchlist">
+                        <button className="homeTextWL">Watchlist</button>
+                    </Link>
                 </div>
-                <div className="homeButtonArea"><button onClick={startPage} className="homeLO">Log out</button></div>
+                <div className="homeButtonArea">
+                    <Link to='/' className="link">
+                        <button className="homeLO">Log out</button>
+                    </Link>
+                </div>
             </div>
             <br />
             <div>
+            <br></br>
             <div className ="homeLine"></div>
-                <h1>Welcome Username</h1>
-                <h2>Member Since</h2>
+                <div className="userInfo">
+                    <div className="wlcText">
+                        <h1 className="welcome">Welcome back, Username</h1>
+                        <h2 className="member">Member Since</h2>
+                    </div>
+                    <div className="memberInfo">
+                        <h1 className="welcome1">35</h1>
+                        <h2 className="member">anime watched</h2>
+                    </div>
+                </div>
             </div>
             <div className ="homeLine"></div>
-            <br /><br /><br />
+            <br></br>
+            <div className="wlcText">
+                <h1 className="discover">
+                    Discover New Anime
+                </h1>
+                <h3 className="ultimate">
+                    The ultimate destination for anime fans
+                </h3>
+            </div>
+            <br></br>
             <h3 className="homeTextOther">Popular</h3>
 
             <div className="homeAnimeWrapper">

@@ -4,7 +4,7 @@ import axios from "axios";
 import "./Recommend.css"
 import ButtonComponent from "../../components/ButtonComponent";
 import { Modal } from "@mui/material";
-
+import { Link } from 'react-router-dom';
 
 const Recommend = () => {
 
@@ -47,39 +47,41 @@ const Recommend = () => {
         }
     };
 
-
-
-    const animePage = () => {
-        window.location.href = '/home';
-    };
-
-    const startPage = () => {
-        window.location.href = '/';
-    };
-
-    const wlPage = () => {
-        window.location.href = '/watchlist';
-    };
-
     return (
         <>
             <div className="recTop">
                 <img src={logo} alt="AnimeMania" className="recLogo" />
                 <div className="recTopText">
-                    <button onClick={animePage} className="recTextAnime">Anime</button>
-                    <button className="recTextRec">Recommendations</button>
-                    <button onClick={wlPage} className="recTextWL">Watchlist</button>
+                    <Link to="/home">
+                        <button className="recTextAnime">Anime</button>
+                    </Link>
+                    <Link to="/recommendation">
+                        <button className="recTextRec">Recommendations</button>
+                    </Link>
+                    <Link to="/watchlist">
+                        <button className="recTextWL">Watchlist</button>
+                    </Link>
                 </div>
-                <div className="recButtonArea"><button onClick={startPage} className="recLO">Log out</button></div>
+                <div className="recButtonArea">
+                    <Link to="/">
+                        <button className="recLO">Log out</button>
+                    </Link>
+                </div>
             </div>
             <br />
             <div className="recLine"></div>
-            <br /><br />
-            <h1 className="recInstruction">Enter the name or genre in the textfields to get recommendations</h1>
+            <div className="title">
+                <h1 className="text1">
+                    Based on your preferences, this is what we have curated
+                </h1>
+                <h2 className="text2">
+                    Enter the name or genre in the textfields to get recommendations
+                </h2>
+            </div>
             <br/>
             <div className="animeFormArea">
                 <form onSubmit={handleSubmit}>
-                    <label className="formText" htmlFor="animeName">Enter an anime name:</label>
+                    <label className="formText" htmlFor="animeName">Enter an anime name:                </label>
                     <input
                         type="text"
                         id="animeName"
@@ -87,7 +89,7 @@ const Recommend = () => {
                         value={animeName}
                         onChange={handleInputChange}
                     />
-                    <ButtonComponent type="submit">Get</ButtonComponent>
+                    <ButtonComponent className="getBtn" type="submit">Get</ButtonComponent>
                 </form>
             </div>
             <br />
@@ -115,7 +117,7 @@ const Recommend = () => {
             <br/><br/>
             <div className="animeFormArea">
                 <form onSubmit={handleSubmit2}>
-                    <label className="formText" htmlFor="animeGenre">Enter an anime genre:</label>
+                    <label className="formText" htmlFor="animeGenre">Enter an anime genre:                </label>
                     <input
                         type="text"
                         id="animeGenre"
