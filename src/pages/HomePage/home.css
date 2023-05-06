@@ -1,25 +1,31 @@
 .homeTop {
     display: flex;
-    gap: 430px;
+    /* gap: 430px; */
+    justify-content: space-between;
 }
 
 .homeTopText {
     display: flex;
-    gap: 15px;
+    gap: 30px;
+    margin-top: 50px;
 }
 
 .homeLogo {
-    height: 100px;
     width: 150px;
 }
 
 .homeTextAnime {
-    color: red;
+    color: #B81413;
     text-decoration: underline;
     background: none;
     border: none;
     font-size: 25px;
     font-weight: bold;
+    cursor: pointer;
+}
+
+.homeTextAnime :hover {
+    cursor: pointer;
 }
 
 .homeTextRec {
@@ -27,8 +33,12 @@
     font-weight: normal;
     background: none;
     border: none;
-    font-size: 20px;
+    font-size: 25px;
 
+}
+
+.homeTextRec :hover {
+    cursor: pointer;
 }
 
 .homeTextWL {
@@ -36,17 +46,22 @@
     font-weight: normal;
     background: none;
     border: none;
-    font-size: 20px;
+    font-size: 25px;
+}
+
+.homeTextWL:hover {
+    cursor: pointer;
 }
 
 .homeLO 
 {
- color: Black;
- font-weight: normal;
- background: #f5f5f5;
- font-size: 20px;
- height: 50px;
- width: 100%;
+    color: Black;
+    font-weight: normal;
+    background: #f5f5f5;
+    font-size: 20px;
+    height: 50px;
+    width: 100%;
+    border-radius: 8%;
 }
 
 .homeButtonArea
@@ -54,8 +69,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 20px;
 }
 
+.homeButtonArea :hover {
+    cursor: pointer;
+}
 
 .homeAnimeWrapper {
     width: 100%;
@@ -87,6 +106,10 @@
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     height: 230px;
+}
+
+.homeAnime :hover {
+    cursor: pointer;
 }
 
 .homeAnime img {

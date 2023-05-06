@@ -4,6 +4,7 @@ import logo from "../../logo.png";
 import "./home.css"
 import { Modal } from "@mui/material";
 import ButtonComponent from "../../components/ButtonComponent";
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     const [animeList, setAnimeList] = useState([]);//Popular Anime
@@ -12,17 +13,17 @@ const Home = () => {
     const [selectedAnime, setSelectedAnime] = useState(null);
     const [error, setError] = useState(null);
 
-    const recPage = () => {
-        window.location.href = '/recommendation';
-    };
+    // const recPage = () => {
+    //     window.location.href = '/recommendation';
+    // };
 
-    const startPage = () => {
-        window.location.href = '/';
-    };
+    // const startPage = () => {
+    //     window.location.href = '/';
+    // };
 
-    const wlPage = () => {
-        window.location.href = '/watchlist';
-    };
+    // const wlPage = () => {
+    //     window.location.href = '/watchlist';
+    // };
 
     useEffect(() => {
         const fetchAnime = async () => {
@@ -68,13 +69,23 @@ const Home = () => {
     return (
         <>
             <div className="homeTop">
-                <img src={logo} alt="AnimeMania" className="homeLogo" />
+                <img src={logo} alt="AnimeMania" className="homeLogo"/>
                 <div className="homeTopText">
-                    <button className="homeTextAnime">Anime</button>
-                    <button onClick={recPage} className="homeTextRec">Recommendations</button>
-                    <button onClick = {wlPage} className="homeTextWL">Watchlist</button>
+                    <Link to="/home" className="link">
+                        <button className="homeTextAnime">Anime</button>
+                    </Link>
+                    <Link to='/recommendation' className="link">
+                        <button className="homeTextRec">Recommendations</button>
+                    </Link>
+                    <Link to="/watchlist" className="link">
+                        <button className="homeTextWL">Watchlist</button>
+                    </Link>
                 </div>
-                <div className="homeButtonArea"><button onClick={startPage} className="homeLO">Log out</button></div>
+                <div className="homeButtonArea">
+                    <Link to='/' className="link">
+                        <button className="homeLO">Log out</button>
+                    </Link>
+                </div>
             </div>
             <br />
             <div>
