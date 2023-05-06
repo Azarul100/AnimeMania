@@ -1,8 +1,70 @@
 .loginTop {
     text-align: center;
-    margin-top: 15%;
-}
-
-.loginLogo {
-    width: 35vw;
-}
+    margin-top: 40px;
+  }
+  
+  .loginLogo {
+    width: 30vw;
+  }
+  
+  .loginForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  
+  .textInput {
+    padding: 10px;
+    border-radius: 16px;
+    border: none;
+    background-color: #ccc;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 16px;
+    text-align: center;
+    color: white;
+  }
+  
+  .loginButton {
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+    text-align: center;
+    color: #8b0000;
+    padding: 0;
+    border-radius: 16px;
+    border: none;
+    background-color: #ccc;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  .signupLink {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 12px;
+  }
+  
+  .signupLink a {
+    color: #0077cc;
+    text-decoration: none;
+  }
+  
+  .signupLink a:hover {
+    text-decoration: underline;
+  }
+  
