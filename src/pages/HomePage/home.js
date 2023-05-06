@@ -59,13 +59,13 @@ const Home = () => {
             <div className="homeTop">
                 <img src={logo} alt="AnimeMania" className="homeLogo"/>
                 <div className="homeTopText">
-                    <Link to="/home" className="link">
+                    <Link to="/home">
                         <button className="homeTextAnime">Anime</button>
                     </Link>
-                    <Link to='/recommendation' className="link">
+                    <Link to="/recommendation">
                         <button className="homeTextRec">Recommendations</button>
                     </Link>
-                    <Link to="/watchlist" className="link">
+                    <Link to="/watchlist">
                         <button className="homeTextWL">Watchlist</button>
                     </Link>
                 </div>
@@ -77,12 +77,30 @@ const Home = () => {
             </div>
             <br />
             <div>
+            <br></br>
             <div className ="homeLine"></div>
-                <h1>Welcome Username</h1>
-                <h2>Member Since</h2>
+                <div className="userInfo">
+                    <div className="wlcText">
+                        <h1 className="welcome">Welcome back, Username</h1>
+                        <h2 className="member">Member Since</h2>
+                    </div>
+                    <div className="memberInfo">
+                        <h1 className="welcome1">35</h1>
+                        <h2 className="member">anime watched</h2>
+                    </div>
+                </div>
             </div>
             <div className ="homeLine"></div>
-            <br /><br /><br />
+            <br></br>
+            <div className="wlcText">
+                <h1 className="discover">
+                    Discover New Anime
+                </h1>
+                <h3 className="ultimate">
+                    The ultimate destination for anime fans
+                </h3>
+            </div>
+            <br></br>
             <h3 className="homeTextOther">Popular</h3>
 
             <div className="homeAnimeWrapper">

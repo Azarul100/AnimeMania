@@ -7,7 +7,8 @@
 .homeTopText {
     display: flex;
     gap: 30px;
-    margin-top: 50px;
+    margin-top: 30px;
+    align-items: center;
 }
 
 .homeLogo {
@@ -24,20 +25,12 @@
     cursor: pointer;
 }
 
-.homeTextAnime :hover {
-    cursor: pointer;
-}
-
 .homeTextRec {
     color: black;
     font-weight: normal;
     background: none;
     border: none;
     font-size: 25px;
-
-}
-
-.homeTextRec :hover {
     cursor: pointer;
 }
 
@@ -47,9 +40,6 @@
     background: none;
     border: none;
     font-size: 25px;
-}
-
-.homeTextWL:hover {
     cursor: pointer;
 }
 
@@ -83,6 +73,7 @@
     box-sizing: border-box;
     display: flex;
     justify-content: center;
+    margin-left: 30px;
 }
 
 .homeAnimeContainer {
@@ -129,6 +120,9 @@
 .homeTextOther {
     margin: 10px;
     padding: 5px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 25px;
+    margin-left: 20px;
 }
 
 .modal {
@@ -156,3 +150,38 @@
     width: 100%;
   }
   
+  .userInfo {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 20px;
+  }
+
+  .wlcText {
+    margin-left: 20px;
+  }
+
+  .welcome {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 40px;
+  }
+
+  .discover {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 30px;
+  }
+
+  .ultimate {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+  }
+
+  .welcome1 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 40px;
+    text-align: end;
+  }
+
+  .member {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 25px;
+  }

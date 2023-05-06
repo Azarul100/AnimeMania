@@ -70,12 +70,18 @@ const Recommend = () => {
             </div>
             <br />
             <div className="recLine"></div>
-            <br /><br />
-            <h1 className="recInstruction">Enter the name or genre in the textfields to get recommendations</h1>
+            <div className="title">
+                <h1 className="text1">
+                    Based on your preferences, this is what we have curated
+                </h1>
+                <h2 className="text2">
+                    Enter the name or genre in the textfields to get recommendations
+                </h2>
+            </div>
             <br/>
             <div className="animeFormArea">
                 <form onSubmit={handleSubmit}>
-                    <label className="formText" htmlFor="animeName">Enter an anime name:</label>
+                    <label className="formText" htmlFor="animeName">Enter an anime name:                </label>
                     <input
                         type="text"
                         id="animeName"
@@ -83,7 +89,7 @@ const Recommend = () => {
                         value={animeName}
                         onChange={handleInputChange}
                     />
-                    <ButtonComponent type="submit">Get</ButtonComponent>
+                    <ButtonComponent className="getBtn" type="submit">Get</ButtonComponent>
                 </form>
             </div>
             <br />
@@ -111,7 +117,7 @@ const Recommend = () => {
             <br/><br/>
             <div className="animeFormArea">
                 <form onSubmit={handleSubmit2}>
-                    <label className="formText" htmlFor="animeGenre">Enter an anime genre:</label>
+                    <label className="formText" htmlFor="animeGenre">Enter an anime genre:                </label>
                     <input
                         type="text"
                         id="animeGenre"
