@@ -10,6 +10,7 @@ const Home = () => {
     const [animeList2, setAnimeList2] = useState([]);//Trending Anime
     const [animeList3, setAnimeList3] = useState([]);//Random Anime
     const [selectedAnime, setSelectedAnime] = useState(null);
+    const [error, setError] = useState(null);
 
     const recPage = () => {
         window.location.href = '/recommendation';
@@ -25,20 +26,30 @@ const Home = () => {
 
     useEffect(() => {
         const fetchAnime = async () => {
-            const result = await axios(
-                "https://kitsu.io/api/edge/anime?sort=popularityRank"
-            );
-            setAnimeList(result.data.data.slice(0, 10));
+            try {
+                const result = await axios(
+                    "https://kitsu.io/api/edge/anime?sort=popularityRank"
+                );
+                setAnimeList(result.data.data.slice(0, 10));
+            } catch (error) {
+                setError(error);
+                setAnimeList([]);
+            }
         };
         fetchAnime();
     }, []);
 
     useEffect(() => {
         const fetchAnime2 = async () => {
-            const result2 = await axios(
-                "https://kitsu.io/api/edge/trending/anime"
-            );
-            setAnimeList2(result2.data.data.slice(0, 10));
+            try {
+                const result2 = await axios(
+                    "https://kitsu.io/api/edge/trending/anime"
+                );
+                setAnimeList2(result2.data.data.slice(0, 10));
+            } catch (error) {
+                setError(error);
+                setAnimeList2([]);
+            }
         };
         fetchAnime2();
     }, []);
@@ -47,8 +58,12 @@ const Home = () => {
         const offset = Math.floor(Math.random() * 100);
         fetch(`https://kitsu.io/api/edge/anime?page[limit]=10&page[offset]=${offset}&sort=-averageRating`)
           .then(response => response.json())
-          .then(data => setAnimeList3(data.data.filter(anime => anime.attributes.synopsis && anime.attributes.canonicalTitle !== "deleted")));
-  }, []);
+          .then(data => setAnimeList3(data.data.filter(anime => anime.attributes.synopsis && anime.attributes.canonicalTitle !== "deleted")))
+          .catch(error => {
+              setError(error);
+              setAnimeList3([]);
+          });
+    }, []);
 
     return (
         <>

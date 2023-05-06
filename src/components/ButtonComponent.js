@@ -6,7 +6,7 @@ const ButtonComponent = styled.button`
   border: none;
   border-radius: 12px;
   font-size: 20px;
-  width: 32%;
+  width: fit-content;
   padding: 15px 30px;
   align-items: center;
   justify-content: center;
