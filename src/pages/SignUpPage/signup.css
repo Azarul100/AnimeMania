@@ -1,10 +1,10 @@
 .signinTop {
     text-align: center;
-    margin-top: 15%;
+    margin-top: 40px;
 }
 
 .signinLogo {
-    width: 35vw;
+    width: 30vw;
 } 
 
 .signinForm {
@@ -36,7 +36,7 @@
     color: white;
   }
   
-  .loginButton {
+  .signinButton {
     width: 100%;
     height: 40px;
     margin-top: 10px;
@@ -53,18 +53,18 @@
   }
   
   
-  .loginLink {
+  .signinLink {
     margin-top: 10px;
     text-align: center;
     font-size: 12px;
   }
   
-  .loginLink a {
+  .signinLink a {
     color: #0077cc;
     text-decoration: none;
   }
   
-  .signupLink a:hover {
+  .signinLink a:hover {
     text-decoration: underline;
   }
   

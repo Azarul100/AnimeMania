@@ -4,6 +4,9 @@ import "./signup.css";
 import ButtonComponent from "../../components/ButtonComponent";
 
 function SignUp() {
+    const LoginPage = () => {
+        window.location.href = '/login';
+    };
     return (
         <>
       <div className="signinTop">
@@ -28,7 +31,7 @@ function SignUp() {
           Sign up
         </ButtonComponent>
         <div className="signinLink">
-          Already have an account? <a href="#">Login in</a>
+          <ButtonComponent onClick={LoginPage}>Already have an account?</ButtonComponent>
         </div>
       </form>
     </>
