@@ -4,10 +4,6 @@ import "./login.css";
 import ButtonComponent from "../../components/ButtonComponent";
 
 function Login() {
-    const redirectToSignup = () => {
-        window.location.href = '/signup';
-      };
-      
     return (
         <>
       <div className="loginTop">
