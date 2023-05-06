@@ -27,3 +27,13 @@
     margin-top: 2%;
 }
 
+.guest {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+}
+
+.link {
+    text-decoration: none;
+}

@@ -2,14 +2,9 @@ import React from "react";
 import logo from "../../logo.png";
 import "./start.css"
 import ButtonComponent from "../../components/ButtonComponent";
+import { Link } from 'react-router-dom';
 
 function Start() {
-    const LoginPage = () => {
-        window.location.href = '/login';
-    };
-    const SignupPage = () => {
-        window.location.href = '/signup';
-    };
     return (
         <>
             <div className="startTop">
@@ -19,10 +14,14 @@ function Start() {
                 <h1>Discover New Anime</h1>
             </div>
             <div className="loginBtn">
-                <ButtonComponent onClick={LoginPage}>Returning User? Login</ButtonComponent>
+                <Link to='/login' className="link">
+                    <ButtonComponent>Returning User? Login</ButtonComponent>
+                </Link>
             </div>
             <div className="signupBtn">
-            <ButtonComponent onClick={SignupPage}>New User? Signup</ButtonComponent>
+                <Link to='/signup' className="link">
+                    <ButtonComponent>New User? Signup</ButtonComponent>
+                </Link>
             </div>
         </>
     );
