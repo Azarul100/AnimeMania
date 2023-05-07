@@ -9,6 +9,7 @@
     gap: 30px;
     margin-top: 30px;
     align-items: center;
+    margin-right: 20px;
 }
 
 .homeLogo {
@@ -66,28 +67,47 @@
     cursor: pointer;
 }
 
-.homeAnimeWrapper {
-    width: 100%;
-    overflow-x: auto;
-    padding: 0 20px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    margin-left: 30px;
+.homeBody {
+  width: 85%;
+  margin: 0 auto;
+  padding: 0 20px;
+  overflow: auto;
+}
+
+.wlcText {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.discover {
+  font-size: 30px;
+}
+
+.ultimate {
+  font-size: 20px;
+}
+
+.homeTextOther {
+  text-align: left;
+  padding: 5px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 25px;
 }
 
 .homeAnimeContainer {
     width: 100%;
-    margin: 0 auto;
+    margin: auto auto;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .homeAnimeView {
     display: flex;
     flex-wrap: nowrap;
-    margin-top: -10px;
-    margin-bottom: 20px;
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
+    /* width: 1520px; */
+    height: 400px;
+    overflow-x: scroll;
 }
 
 .homeAnime {
@@ -96,7 +116,8 @@
     background-color: #f5f5f5;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    height: 230px;
+    height: 310px;
+    float: left;
 }
 
 .homeAnime :hover {
@@ -106,8 +127,10 @@
 .homeAnime img {
     display: block;
     margin: 0 auto;
-    width: 130px;
-    height: 175px;
+    width: 195px;
+    height: 262.5px;
+    /* width: 130px;
+    height: 175px; */
     object-fit: cover;
     border-radius: 10px;
 }
@@ -115,15 +138,9 @@
 .homeAnime p {
     margin-top: 10px;
     text-align: center;
+    word-wrap: break-word;
 }
 
-.homeTextOther {
-    margin: 10px;
-    padding: 5px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 25px;
-    margin-left: 20px;
-}
 
 .modal {
     position: absolute;
@@ -156,24 +173,14 @@
     margin-right: 20px;
   }
 
-  .wlcText {
-    margin-left: 20px;
-  }
+  
 
   .welcome {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 40px;
   }
 
-  .discover {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 30px;
-  }
-
-  .ultimate {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 20px;
-  }
+  
 
   .welcome1 {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;

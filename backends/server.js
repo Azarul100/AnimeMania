@@ -10,18 +10,6 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'src')));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'src', 'pages', 'StartPage', 'start.js'));
-});
-
-app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, 'src', 'pages', 'LogInPage', 'login.js'));
-});
-
-app.get('/signup', (req, res) => {
-    res.sendFile(path.join(__dirname, 'src', 'pages', 'SignUpPage', 'signup.js'));
-});
-
-app.get('/home', (req,res) => {
     res.sendFile(path.join(__dirname, 'src', 'pages', 'HomePage', 'home.js'));
 });
 
