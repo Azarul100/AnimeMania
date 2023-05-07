@@ -29,8 +29,8 @@ app.get('/recommendation', (req,res) => {
     res.sendFile(path.join(__dirname, 'src', 'pages', 'RecommendationPage', 'Recommendation.js'));
 });
 
-app.get('/watchlist', (req,res) => {
-    res.sendFile(path.join(__dirname, 'src', 'pages', 'WatchlistPage', 'Watchlist.js'));
+app.get('/manga', (req,res) => {
+    res.sendFile(path.join(__dirname, 'src', 'pages', 'MangaPage', 'Manga.js'));
 });
 
 const port = process.env.PORT || 3000;

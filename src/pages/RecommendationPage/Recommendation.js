@@ -55,11 +55,11 @@ const Recommend = () => {
                     <Link to="/home">
                         <button className="recTextAnime">Anime</button>
                     </Link>
+                    <Link to="/manga">
+                        <button className="recTextWL">Manga</button>
+                    </Link>
                     <Link to="/recommendation">
                         <button className="recTextRec">Recommendations</button>
-                    </Link>
-                    <Link to="/watchlist">
-                        <button className="recTextWL">Watchlist</button>
                     </Link>
                 </div>
                 <div className="recButtonArea">
@@ -70,86 +70,88 @@ const Recommend = () => {
             </div>
             <br />
             <div className="recLine"></div>
-            <div className="title">
-                <h1 className="text1">
-                    Based on your preferences, this is what we have curated
-                </h1>
-                <h2 className="text2">
-                    Enter the name or genre in the textfields to get recommendations
-                </h2>
-            </div>
-            <br/>
-            <div className="animeFormArea">
-                <form onSubmit={handleSubmit}>
-                    <label className="formText" htmlFor="animeName">Enter an anime name:                </label>
-                    <input
-                        type="text"
-                        id="animeName"
-                        name="animeName"
-                        value={animeName}
-                        onChange={handleInputChange}
-                    />
-                    <ButtonComponent className="getBtn" type="submit">Get</ButtonComponent>
-                </form>
-            </div>
-            <br />
-            <div className="recAnimeWrapper">
-                <div className="recAnimeContainer">
-                    <br />
-                    <div className="recAnimeView">
-                        {animeData.map((anime) => (
-                            <div onClick={() => setSelectedAnime(anime)} className="recAnime" key={anime.id}>
-                            <img src={anime.attributes.posterImage.small} alt={anime.attributes.canonicalTitle} />
-                                <p>{anime.attributes.canonicalTitle}</p>
-                            </div>
-                        ))}
+            <div className="recBody">
+                <div className="wlcText">
+                    <h1 className="discover">
+                        Based on your preferences, this is what we have curated
+                    </h1>
+                    <h3 className="ultimate">
+                        Enter the name or genre in the textfields to get recommendations
+                    </h3>
+                </div>
+                <br/>
+                <div className="animeFormArea">
+                    <form onSubmit={handleSubmit}>
+                        <label className="formText" htmlFor="animeName">Enter an anime name:                </label>
+                        <input
+                            type="text"
+                            id="animeName"
+                            name="animeName"
+                            value={animeName}
+                            onChange={handleInputChange}
+                        />
+                        <ButtonComponent className="getBtn" type="submit">Get</ButtonComponent>
+                    </form>
+                </div>
+                <br />
+                <div className="recAnimeWrapper">
+                    <div className="recAnimeContainer">
+                        <br />
+                        <div className="recAnimeView">
+                            {animeData.map((anime) => (
+                                <div onClick={() => setSelectedAnime(anime)} className="recAnime" key={anime.id}>
+                                <img src={anime.attributes.posterImage.small} alt={anime.attributes.canonicalTitle} />
+                                    <p>{anime.attributes.canonicalTitle}</p>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
-            </div>
-            <Modal open={selectedAnime !== null} onClose={() => setSelectedAnime(null)}>
-                <div className="recModal">
-                    <h2>{selectedAnime?.attributes?.canonicalTitle}</h2>
-                    <p>{selectedAnime?.attributes?.synopsis}</p>
-                    <br/>
-                    <div className="recBtnArea"><ButtonComponent >Add to Watchlist</ButtonComponent></div>
+                <Modal open={selectedAnime !== null} onClose={() => setSelectedAnime(null)}>
+                    <div className="recModal">
+                        <h2>{selectedAnime?.attributes?.canonicalTitle}</h2>
+                        <p>{selectedAnime?.attributes?.synopsis}</p>
+                        <br/>
+                        <div className="recBtnArea"><ButtonComponent >Add to Watchlist</ButtonComponent></div>
+                    </div>
+                </Modal>
+                <br/><br/>
+                <div className="animeFormArea">
+                    <form onSubmit={handleSubmit2}>
+                        <label className="formText" htmlFor="animeGenre">Enter an anime genre:                </label>
+                        <input
+                            type="text"
+                            id="animeGenre"
+                            name="animeGenre"
+                            value={animeName2}
+                            onChange={handleInputChange2}
+                        />
+                        <ButtonComponent type="submit">Get</ButtonComponent>
+                    </form>
                 </div>
-            </Modal>
-            <br/><br/>
-            <div className="animeFormArea">
-                <form onSubmit={handleSubmit2}>
-                    <label className="formText" htmlFor="animeGenre">Enter an anime genre:                </label>
-                    <input
-                        type="text"
-                        id="animeGenre"
-                        name="animeGenre"
-                        value={animeName2}
-                        onChange={handleInputChange2}
-                    />
-                    <ButtonComponent type="submit">Get</ButtonComponent>
-                </form>
-            </div>
-            <br />
-            <div className="recAnimeWrapper">
-                <div className="recAnimeContainer">
-                    <br />
-                    <div className="recAnimeView">
-                        {animeData2.map((anime2) => (
-                            <div onClick={() => setSelectedAnime(anime2)} className="recAnime" key={anime2.id}>
-                            <img src={anime2.attributes.posterImage.small} alt={anime2.attributes.canonicalTitle} />
-                                <p>{anime2.attributes.canonicalTitle}</p>
-                            </div>
-                        ))}
+                <br />
+                <div className="recAnimeWrapper">
+                    <div className="recAnimeContainer">
+                        <br />
+                        <div className="recAnimeView">
+                            {animeData2.map((anime2) => (
+                                <div onClick={() => setSelectedAnime(anime2)} className="recAnime" key={anime2.id}>
+                                <img src={anime2.attributes.posterImage.small} alt={anime2.attributes.canonicalTitle} />
+                                    <p>{anime2.attributes.canonicalTitle}</p>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
+                <Modal open={selectedAnime !== null} onClose={() => setSelectedAnime(null)}>
+                    <div className="recModal">
+                        <h2>{selectedAnime?.attributes?.canonicalTitle}</h2>
+                        <p>{selectedAnime?.attributes?.synopsis}</p>
+                        <br/>
+                        <div className="recBtnArea"><ButtonComponent >Add to Watchlist</ButtonComponent></div>
+                    </div>
+                </Modal>
             </div>
-            <Modal open={selectedAnime !== null} onClose={() => setSelectedAnime(null)}>
-                <div className="recModal">
-                    <h2>{selectedAnime?.attributes?.canonicalTitle}</h2>
-                    <p>{selectedAnime?.attributes?.synopsis}</p>
-                    <br/>
-                    <div className="recBtnArea"><ButtonComponent >Add to Watchlist</ButtonComponent></div>
-                </div>
-            </Modal>
         </>
     );
 };
