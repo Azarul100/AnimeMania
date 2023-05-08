@@ -12,9 +12,62 @@ const Recommend = () => {
     const [animeData, setAnimeData] = useState([]);
     const [animeName2, setAnimeName2] = useState("");
     const [animeData2, setAnimeData2] = useState([]);
+    // const [animeName3, setAnimeName3] = useState("");
+    // const [animeData3, setAnimeData3] = useState([]);
+    const [animeName4, setAnimeName4] = useState("");
+    const [animeData4, setAnimeData4] = useState([]);
+    const [animeName5, setAnimeName5] = useState("");
+    const [animeData5, setAnimeData5] = useState([]);
     const [selectedAnime, setSelectedAnime] = useState(null);
+    
+    // NAV BAR 
+    const [showAnimeForm, setShowAnimeForm] = useState(false);
+    const handleAnimeClick = () => {
+        setShowAnimeForm(true);
+        setShowGenreForm(false);
+        setShowRatingForm(false);
+        setShowEpisodesForm(false);
+        setShowStatusForm(false);
+    }
 
+    const [showGenreForm, setShowGenreForm] = useState(false);
+    const handleGenreClick = () => {
+        setShowAnimeForm(false);
+        setShowGenreForm(true);
+        setShowRatingForm(false);
+        setShowEpisodesForm(false);
+        setShowStatusForm(false);
+    }
 
+    const [showRatingForm, setShowRatingForm] = useState(false);
+    const handleRatingClick = () => {
+        setShowAnimeForm(false);
+        setShowGenreForm(false);
+        setShowRatingForm(true);
+        setShowEpisodesForm(false);
+        setShowStatusForm(false);
+    }
+
+    const [showEpisodesForm, setShowEpisodesForm] = useState(false);
+    const handleEpisodesClick = () => {
+        setShowAnimeForm(false);
+        setShowGenreForm(false);
+        setShowRatingForm(false);
+        setShowEpisodesForm(true);
+        setShowStatusForm(false);
+    }
+
+    const [showStatusForm, setShowStatusForm] = useState(false);
+    const handleStatusClick = () => {
+        setShowAnimeForm(false);
+        setShowGenreForm(false);
+        setShowRatingForm(false);
+        setShowEpisodesForm(false);
+        setShowStatusForm(true);
+    }
+
+    // Search functionalities
+    // Name
     const handleInputChange = (event) => {
         setAnimeName(event.target.value);
     };
@@ -31,6 +84,7 @@ const Recommend = () => {
         }
     };
 
+    // Genre
     const handleInputChange2 = (event) => {
         setAnimeName2(event.target.value);
     };
@@ -42,6 +96,57 @@ const Recommend = () => {
             const animeList2 = response2.data.data;
             const randomAnimeList2 = animeList2.sort(() => 0.5 - Math.random()).slice(0, 10);
             setAnimeData2(randomAnimeList2);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    // Rating
+    // const handleInputChange3 = (event) => {
+    //     setAnimeName3(event.target.value);
+    // };
+
+    // const handleSubmit3 = async (event) => {
+    //     event.preventDefault();
+    //     try {
+    //         const response3 = await axios.get(`https://kitsu.io/api/edge/anime?filter[averageRating]=${animeName3}`);
+    //         const animeList3 = response3.data.data;
+    //         const randomAnimeList3 = animeList3.sort(() => 0.5 - Math.random()).slice(0, 10);
+    //         setAnimeData3(randomAnimeList3);
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // };
+
+    // Episodes
+    const handleInputChange4 = (event) => {
+        setAnimeName4(event.target.value);
+    };
+
+    const handleSubmit4 = async (event) => {
+        event.preventDefault();
+        try {
+            const response4 = await axios.get(`https://kitsu.io/api/edge/anime?filter[episodeCount]=${animeName4}`);
+            const animeList4 = response4.data.data;
+            const randomAnimeList4 = animeList4.sort(() => 0.5 - Math.random()).slice(0, 10);
+            setAnimeData4(randomAnimeList4);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    // Status
+    const handleInputChange5 = (event) => {
+        setAnimeName5(event.target.value);
+    };
+
+    const handleSubmit5 = async (event) => {
+        event.preventDefault();
+        try {
+            const response5 = await axios.get(`https://kitsu.io/api/edge/anime?filter[status]=${animeName5}`);
+            const animeList5 = response5.data.data;
+            const randomAnimeList5 = animeList5.sort(() => 0.5 - Math.random()).slice(0, 10);
+            setAnimeData5(randomAnimeList5);
         } catch (error) {
             console.log(error);
         }
@@ -80,75 +185,189 @@ const Recommend = () => {
                     </h3>
                 </div>
                 <br/>
-                <div className="animeFormArea">
-                    <form onSubmit={handleSubmit}>
-                        <label className="formText" htmlFor="animeName">Enter an anime name:                </label>
-                        <input
-                            type="text"
-                            id="animeName"
-                            name="animeName"
-                            value={animeName}
-                            onChange={handleInputChange}
-                        />
+                <div className="recs-filter">
+                    <div className="filters">
+                        <li onClick={handleAnimeClick}>Name</li>
+                        <li onClick={handleGenreClick}>Genre</li>
+                        {/* <li onClick={handleRatingClick}>Avg Rating</li> */}
+                        <li onClick={handleEpisodesClick}>Episodes</li>
+                        <li onClick={handleStatusClick}>Status</li>
+                    </div>
+                </div>
+                {showGenreForm ? (
+                    <><form className="genre-form" onSubmit={handleSubmit2}>
+                        {/* Add form elements for genre filter here */}
+                        <div className="search-bar">
+                            <input className="input"
+                                type="text"
+                                placeholder="Enter an anime genre"
+                                id="animeGenre"
+                                name="animeGenre"
+                                value={animeName2}
+                                onChange={handleInputChange2} />
+                        </div>
                         <ButtonComponent className="getBtn" type="submit">Get</ButtonComponent>
                     </form>
-                </div>
-                <br />
-                <div className="recAnimeWrapper">
-                    <div className="recAnimeContainer">
-                        <br />
-                        <div className="recAnimeView">
-                            {animeData.map((anime) => (
-                                <div onClick={() => setSelectedAnime(anime)} className="recAnime" key={anime.id}>
-                                <img src={anime.attributes.posterImage.small} alt={anime.attributes.canonicalTitle} />
-                                    <p>{anime.attributes.canonicalTitle}</p>
-                                </div>
-                            ))}
+                    <div className="recAnimeWrapper">
+                        <div className="recAnimeContainer">
+                            <br />
+                            <div className="recAnimeView">
+                                {animeData2.map((anime2) => (
+                                    <div onClick={() => setSelectedAnime(anime2)} className="recAnime" key={anime2.id}>
+                                        <img src={anime2.attributes.posterImage.small} alt={anime2.attributes.canonicalTitle} />
+                                        <p>{anime2.attributes.canonicalTitle}</p>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
-                </div>
-                <Modal open={selectedAnime !== null} onClose={() => setSelectedAnime(null)}>
-                    <div className="recModal">
-                        <h2>{selectedAnime?.attributes?.canonicalTitle}</h2>
-                        <p>{selectedAnime?.attributes?.synopsis}</p>
-                        <br/>
-                    </div>
-                </Modal>
-                <br/><br/>
-                <div className="animeFormArea">
-                    <form onSubmit={handleSubmit2}>
-                        <label className="formText" htmlFor="animeGenre">Enter an anime genre:                </label>
-                        <input
-                            type="text"
-                            id="animeGenre"
-                            name="animeGenre"
-                            value={animeName2}
-                            onChange={handleInputChange2}
-                        />
-                        <ButtonComponent type="submit">Get</ButtonComponent>
-                    </form>
-                </div>
-                <br />
-                <div className="recAnimeWrapper">
-                    <div className="recAnimeContainer">
-                        <br />
-                        <div className="recAnimeView">
-                            {animeData2.map((anime2) => (
-                                <div onClick={() => setSelectedAnime(anime2)} className="recAnime" key={anime2.id}>
-                                <img src={anime2.attributes.posterImage.small} alt={anime2.attributes.canonicalTitle} />
-                                    <p>{anime2.attributes.canonicalTitle}</p>
-                                </div>
-                            ))}
+                    <Modal open={selectedAnime !== null} onClose={() => setSelectedAnime(null)}>
+                        <div className="recModal">
+                            <h2>{selectedAnime?.attributes?.canonicalTitle}</h2>
+                            <p>{selectedAnime?.attributes?.synopsis}</p>
+                            <br />
                         </div>
-                    </div>
-                </div>
-                <Modal open={selectedAnime !== null} onClose={() => setSelectedAnime(null)}>
-                    <div className="recModal">
-                        <h2>{selectedAnime?.attributes?.canonicalTitle}</h2>
-                        <p>{selectedAnime?.attributes?.synopsis}</p>
-                        <br/>
-                    </div>
-                </Modal>
+                    </Modal></>
+                ) 
+                // : showRatingForm ? (
+                //     // Add form elements for rating filter here
+                //     <>
+                //     <form className="rating-search" onSubmit={handleSubmit3}>
+                //         <div className="search-bar">
+                //             <input className="input"
+                //                 type="text"
+                //                 placeholder="Enter the anime rating"
+                //                 id="animeRating"
+                //                 name="animeRating"
+                //                 value={animeName3}
+                //                 onChange={handleInputChange3}
+                //             />
+                //         </div>
+                //         <ButtonComponent className="getBtn" type="submit">Get</ButtonComponent>
+                //     </form>
+                //     <div className="recAnimeWrapper">
+                //         <div className="recAnimeContainer">
+                //             <br />
+                //             <div className="recAnimeView">
+                //                 {animeData3.map((anime3) => (
+                //                     <div onClick={() => setSelectedAnime(anime3)} className="recAnime" key={anime3.id}>
+                //                         <img src={anime3.attributes.posterImage.small} alt={anime3.attributes.canonicalTitle} />
+                //                         <p>{anime3.attributes.canonicalTitle}</p>
+                //                     </div>
+                //                 ))}
+                //             </div>
+                //         </div>
+                //     </div>
+                //     <Modal open={selectedAnime !== null} onClose={() => setSelectedAnime(null)}>
+                //         <div className="recModal">
+                //             <h2>{selectedAnime?.attributes?.canonicalTitle}</h2>
+                //             <p>{selectedAnime?.attributes?.synopsis}</p>
+                //             <br />
+                //         </div>
+                //     </Modal>
+                //     </>
+                //   ) 
+                  : showEpisodesForm ? (
+                    // Add form elements for episodes filter here
+                    <>
+                        <form className="eps-search" onSubmit={handleSubmit4}>
+                            <div className="search-bar">
+                                <input className="input"
+                                    type="text"
+                                    placeholder="Enter the number of episodes"
+                                    id="animeEps"
+                                    name="animeEps"
+                                    value={animeName4}
+                                    onChange={handleInputChange4} />
+                            </div>
+                            <ButtonComponent className="getBtn" type="submit">Get</ButtonComponent>
+                        </form><div className="recAnimeWrapper">
+                            <div className="recAnimeContainer">
+                                <br />
+                                <div className="recAnimeView">
+                                    {animeData4.map((anime4) => (
+                                        <div onClick={() => setSelectedAnime(anime4)} className="recAnime" key={anime4.id}>
+                                            <img src={anime4.attributes.posterImage.small} alt={anime4.attributes.canonicalTitle} />
+                                            <p>{anime4.attributes.canonicalTitle}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div><Modal open={selectedAnime !== null} onClose={() => setSelectedAnime(null)}>
+                            <div className="recModal">
+                                <h2>{selectedAnime?.attributes?.canonicalTitle}</h2>
+                                <p>{selectedAnime?.attributes?.synopsis}</p>
+                                <br />
+                            </div>
+                        </Modal></>
+                  ) : showStatusForm ? (
+                    // Add form elements for status filter here
+                    <>
+                    <form className="stat-search" onSubmit={handleSubmit5}>
+                        <div className="search-bar">
+                            <input className="input"
+                                type="text"
+                                placeholder="Enter the anime status: Current | Finished | TBA | Unreleased | Upcoming"
+                                id="animeStat"
+                                name="animeStat"
+                                value={animeName5}
+                                onChange={handleInputChange5} />
+                        </div>
+                        <ButtonComponent className="getBtn" type="submit">Get</ButtonComponent>
+                    </form><div className="recAnimeWrapper">
+                        <div className="recAnimeContainer">
+                            <br />
+                            <div className="recAnimeView">
+                                {animeData5.map((anime5) => (
+                                    <div onClick={() => setSelectedAnime(anime5)} className="recAnime" key={anime5.id}>
+                                        <img src={anime5.attributes.posterImage.small} alt={anime5.attributes.canonicalTitle} />
+                                        <p>{anime5.attributes.canonicalTitle}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div><Modal open={selectedAnime !== null} onClose={() => setSelectedAnime(null)}>
+                        <div className="recModal">
+                            <h2>{selectedAnime?.attributes?.canonicalTitle}</h2>
+                            <p>{selectedAnime?.attributes?.synopsis}</p>
+                            <br />
+                        </div>
+                    </Modal></>
+                  ) : (
+                        <><form className="recs-search" onSubmit={handleSubmit}>
+                            <div className="search-bar">
+                                <input className="input"
+                                    type="text"
+                                    placeholder="Enter an anime name"
+                                    id="animeName"
+                                    name="animeName"
+                                    value={animeName}
+                                    onChange={handleInputChange} />
+                            </div>
+                            <ButtonComponent className="getBtn" type="submit">Get</ButtonComponent>
+                        </form>
+                        <div className="recAnimeWrapper">
+                            <div className="recAnimeContainer">
+                                <br />
+                                <div className="recAnimeView">
+                                    {animeData.map((anime) => (
+                                        <div onClick={() => setSelectedAnime(anime)} className="recAnime" key={anime.id}>
+                                            <img src={anime.attributes.posterImage.small} alt={anime.attributes.canonicalTitle} />
+                                            <p>{anime.attributes.canonicalTitle}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                        <Modal open={selectedAnime !== null} onClose={() => setSelectedAnime(null)}>
+                            <div className="recModal">
+                                <h2>{selectedAnime?.attributes?.canonicalTitle}</h2>
+                                <p>{selectedAnime?.attributes?.synopsis}</p>
+                                <br />
+                            </div>
+                        </Modal></>
+                    )
+                }
             </div>
         </>
     );

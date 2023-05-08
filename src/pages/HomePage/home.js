@@ -154,8 +154,9 @@ const Home = () => {
                 </div>
                 <Modal open={selectedAnime !== null} onClose={() => setSelectedAnime(null)}>
                     <div className="modal">
-                        <h1>Synopsis</h1>
                         <h2>{selectedAnime?.attributes?.canonicalTitle}</h2>
+                        <h3>Average rating: {selectedAnime?.attributes?.averageRating} / 100</h3>
+                        <h4>Synopsis</h4>
                         <p>{selectedAnime?.attributes?.synopsis}</p>
                         <br/>
                     </div>
@@ -196,8 +197,9 @@ const Home = () => {
                 </div>
                 <Modal open={selectedAnime !== null} onClose={() => setSelectedAnime(null)}>
                     <div className="modal">
-                        <h1>Synopsis</h1>
                         <h2>{selectedAnime?.attributes?.canonicalTitle}</h2>
+                        <h3>Average rating: {selectedAnime?.attributes?.averageRating} / 100</h3>
+                        <h4>Synopsis</h4>
                         <p>{selectedAnime?.attributes?.synopsis}</p>
                         <br/>
                     </div>
