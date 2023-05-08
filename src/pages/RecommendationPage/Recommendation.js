@@ -224,6 +224,8 @@ const Recommend = () => {
                     <Modal open={selectedAnime !== null} onClose={() => setSelectedAnime(null)}>
                         <div className="recModal">
                             <h2>{selectedAnime?.attributes?.canonicalTitle}</h2>
+                            <h3>Average rating: {selectedAnime?.attributes?.averageRating} / 100</h3>
+                            <h4>Synopsis</h4>
                             <p>{selectedAnime?.attributes?.synopsis}</p>
                             <br />
                         </div>
@@ -296,6 +298,8 @@ const Recommend = () => {
                         </div><Modal open={selectedAnime !== null} onClose={() => setSelectedAnime(null)}>
                             <div className="recModal">
                                 <h2>{selectedAnime?.attributes?.canonicalTitle}</h2>
+                                <h3>Average rating: {selectedAnime?.attributes?.averageRating} / 100</h3>
+                                <h4>Synopsis</h4>
                                 <p>{selectedAnime?.attributes?.synopsis}</p>
                                 <br />
                             </div>
@@ -329,6 +333,8 @@ const Recommend = () => {
                     </div><Modal open={selectedAnime !== null} onClose={() => setSelectedAnime(null)}>
                         <div className="recModal">
                             <h2>{selectedAnime?.attributes?.canonicalTitle}</h2>
+                            <h3>Average rating: {selectedAnime?.attributes?.averageRating} / 100</h3>
+                            <h4>Synopsis</h4>
                             <p>{selectedAnime?.attributes?.synopsis}</p>
                             <br />
                         </div>
@@ -362,6 +368,8 @@ const Recommend = () => {
                         <Modal open={selectedAnime !== null} onClose={() => setSelectedAnime(null)}>
                             <div className="recModal">
                                 <h2>{selectedAnime?.attributes?.canonicalTitle}</h2>
+                                <h3>Average rating: {selectedAnime?.attributes?.averageRating} / 100</h3>
+                                <h4>Synopsis</h4>
                                 <p>{selectedAnime?.attributes?.synopsis}</p>
                                 <br />
                             </div>
