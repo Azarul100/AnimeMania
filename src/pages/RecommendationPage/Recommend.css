@@ -203,3 +203,84 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 25px;
   }
+
+  /*new stuff*/
+  .recs-filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f1f1f1;
+    padding: 0.5em;
+    border-radius: 0.5em;
+  }
+  
+  .filters {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .filters li {
+    margin-right: 1em;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .filters li:hover {
+    color: #B81413;
+  }
+
+  .recs-search {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  .genre-form {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  .rating-search {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  .eps-search {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  .stat-search {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  .input {
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  
+  .search-bar {
+    display: flex;
+    width: 90%;
+    font-size: 100px;
+  }
+  
+  .search-bar input {
+    flex-grow: 1;
+    padding: 0.5em;
+    border-radius: 10px;
+  }
+  
+  .getBtn {
+    border-radius: 0 1em 1em 0;
+  }
+  
