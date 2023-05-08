@@ -1,21 +1,9 @@
 import React from "react";
 import logo from "../../logo.png";
-import "./Watchlist.css"
+import "./Manga.css"
 import { Link } from 'react-router-dom';
 
-const Watchlist = () => {
-    const animePage = () => {
-        window.location.href = '/home';
-    };
-
-    const startPage = () => {
-        window.location.href = '/';
-    };
-
-    const recPage = () => {
-        window.location.href = '/recommendation';
-    };
-
+const Manga = () => {
     return (
         <>
             <div className="wlTop">
@@ -24,11 +12,11 @@ const Watchlist = () => {
                     <Link to="/home">
                         <button className="wlTextAnime">Anime</button>
                     </Link>
+                    <Link to="/manga">
+                        <button className="wlTextWL">Manga</button>
+                    </Link>
                     <Link to="/recommendation">
                         <button className="wlTextRec">Recommendations</button>
-                    </Link>
-                    <Link to="/watchlist">
-                        <button className="wlTextWL">Watchlist</button>
                     </Link>
                 </div>
                 <div className="wlButtonArea">
@@ -40,11 +28,20 @@ const Watchlist = () => {
             <br />
             <div className="wlLine"></div>
             <br />
-            <div className="wlIntroText"><h2>You are currently watching</h2></div>
+            <div className="mangaBody">
+                <div className="wlcText">
+                    <h1 className="discover">
+                        Discover New Manga
+                    </h1>
+                    <h3 className="ultimate">
+                        The ultimate destination for manga readers
+                    </h3>
+                </div>
+            </div>
         </>
     );
 };
 
-export default Watchlist;
+export default Manga;
 
 

@@ -21,6 +21,7 @@ function SignUp() {
         password
       );
       console.log(userCredential);
+      window.location.href = "/home";
     } catch (error) {
       setError(error.message);
     }
