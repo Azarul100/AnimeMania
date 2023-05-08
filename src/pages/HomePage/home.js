@@ -4,6 +4,22 @@ import logo from "../../logo.png";
 import "./home.css"
 import { Modal } from "@mui/material";
 import { Link } from 'react-router-dom';
+import { initializeApp } from "firebase/app";
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+
+const firebaseConfig = {
+    apiKey: "AIzaSyD_ILRvbKB8N_VJpeAPjXI7cmpxAwHNRSk",
+    authDomain: "animemania-3ff92.firebaseapp.com",
+    // databaseURL: "https://animemania-3ff92-default-rtdb.firebaseio.com",
+    projectId: "animemania-3ff92",
+    storageBucket: "animemania-3ff92.appspot.com",
+    messagingSenderId: "908194910975",
+    appId: "1:908194910975:web:0375ec669785052fd132ca",
+    measurementId: "G-09WRZ5G0XW"
+  };
+  
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
 const Home = () => {
     const [animeList, setAnimeList] = useState([]);     //  Popular Anime
@@ -11,10 +27,10 @@ const Home = () => {
     const [animeList3, setAnimeList3] = useState([]);   //  Random Anime
     const [selectedAnime, setSelectedAnime] = useState(null);
     const [error, setError] = useState(null);
-
-    
+    const [user, setUser] = useState(null);
 
     useEffect(() => {
+
         const fetchAnime = async () => {
             try {
                 const result = await axios(
@@ -55,6 +71,31 @@ const Home = () => {
           });
     }, []);
 
+    // Get current user info
+    useEffect(() => {
+        onAuthStateChanged(auth, (currentUser) => {
+            if (currentUser) {
+                console.log("User is signed in:", currentUser.email);
+                setUser(currentUser);
+            } else {
+                console.log("User is signed out");
+                setUser(null);
+            }
+        });
+    }, [auth]);
+
+    // useEffect(() => {
+    //     // Disable back button if user is logged in
+    //     if (user) {
+    //       const disableBackButton = (e) => {
+    //         e.preventDefault();
+    //         return false;
+    //       };
+    //       window.addEventListener("onbeforeunload", disableBackButton);
+    //       return () => window.removeEventListener("onbeforeunload", disableBackButton);
+    //     }
+    //   }, [user]);
+
     return (
         <>
             <div className="homeTop">
@@ -79,11 +120,11 @@ const Home = () => {
             <br />
             <div>
             <br></br>
-            <div className ="homeLine"></div>
+            {/* <div className ="homeLine"></div>
             <div className="wlc">
-                <h1 className="welcome">Welcome back, Username</h1>
+                <h1 className="welcome">Welcome back!</h1>
                 <h2 className="member">Member Since</h2>
-            </div>
+            </div> */}
             </div>
             <div className ="homeLine"></div>
             <br></br>
