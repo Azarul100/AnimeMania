@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import logo from "../../logo.png";
 import "./home.css"
-import { Modal } from "@mui/material";
+import { Modal, CircularProgress } from "@mui/material";
 import { Link } from 'react-router-dom';
 import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
@@ -16,8 +16,8 @@ const firebaseConfig = {
     messagingSenderId: "908194910975",
     appId: "1:908194910975:web:0375ec669785052fd132ca",
     measurementId: "G-09WRZ5G0XW"
-  };
-  
+};
+
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
@@ -28,10 +28,13 @@ const Home = () => {
     const [selectedAnime, setSelectedAnime] = useState(null);
     const [error, setError] = useState(null);
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(false);  // add loading state
+
 
     useEffect(() => {
 
         const fetchAnime = async () => {
+            setLoading(true);
             try {
                 const result = await axios(
                     "https://kitsu.io/api/edge/anime?sort=popularityRank"
@@ -41,12 +44,16 @@ const Home = () => {
                 setError(error);
                 setAnimeList([]);
             }
+            finally {
+                setLoading(false);  // set loading state to false
+            }
         };
         fetchAnime();
     }, []);
 
     useEffect(() => {
         const fetchAnime2 = async () => {
+            setLoading(true);
             try {
                 const result2 = await axios(
                     "https://kitsu.io/api/edge/trending/anime"
@@ -56,20 +63,28 @@ const Home = () => {
                 setError(error);
                 setAnimeList2([]);
             }
+            finally {
+                setLoading(false);  // set loading state to false
+            }
         };
         fetchAnime2();
     }, []);
 
     useEffect(() => {
+        setLoading(true);
         const offset = Math.floor(Math.random() * 100);
         fetch(`https://kitsu.io/api/edge/anime?page[limit]=10&page[offset]=${offset}&sort=-averageRating`)
-          .then(response => response.json())
-          .then(data => setAnimeList3(data.data.filter(anime => anime.attributes.synopsis && anime.attributes.canonicalTitle !== "deleted")))
-          .catch(error => {
-              setError(error);
-              setAnimeList3([]);
-          });
+            .then(response => response.json())
+            .then(data => setAnimeList3(data.data.filter(anime => anime.attributes.synopsis && anime.attributes.canonicalTitle !== "deleted")))
+            .catch(error => {
+                setError(error);
+                setAnimeList3([]);
+            })
+            .finally(() => {
+                setLoading(false);
+            });
     }, []);
+
 
     // Get current user info
     useEffect(() => {
@@ -99,7 +114,7 @@ const Home = () => {
     return (
         <>
             <div className="homeTop">
-                <img src={logo} alt="AnimeMania" className="homeLogo"/>
+                <img src={logo} alt="AnimeMania" className="homeLogo" />
                 <div className="homeTopText">
                     <Link to="/home">
                         <button className="homeTextAnime">Anime</button>
@@ -119,14 +134,14 @@ const Home = () => {
             </div>
             <br />
             <div>
-            <br></br>
-            {/* <div className ="homeLine"></div>
+                <br></br>
+                {/* <div className ="homeLine"></div>
             <div className="wlc">
                 <h1 className="welcome">Welcome back!</h1>
                 <h2 className="member">Member Since</h2>
             </div> */}
             </div>
-            <div className ="homeLine"></div>
+            <div className="homeLine"></div>
             <br></br>
             <div className="homeBody">
                 {/*Home Page Title*/}
@@ -143,12 +158,16 @@ const Home = () => {
                 <div className="homeAnimeWrapper">
                     <div className="homeAnimeContainer">
                         <div className="homeAnimeView">
-                            {animeList.map((anime) => (
-                                <div onClick={() => setSelectedAnime(anime)} className="homeAnime" key={anime.id}>
-                                    <img src={anime.attributes.posterImage.small} alt={anime.attributes.canonicalTitle} />
-                                    <p>{anime.attributes.canonicalTitle}</p>
-                                </div>
-                            ))}
+                            {loading ? (
+                                <CircularProgress />
+                            ) : (
+                                animeList.map((anime) => (
+                                    <div onClick={() => setSelectedAnime(anime)} className="homeAnime" key={anime.id}>
+                                        <img src={anime.attributes.posterImage.small} alt={anime.attributes.canonicalTitle} />
+                                        <p>{anime.attributes.canonicalTitle}</p>
+                                    </div>
+                                ))
+                            )}
                         </div>
                     </div>
                 </div>
@@ -158,20 +177,24 @@ const Home = () => {
                         <h3>Average rating: {selectedAnime?.attributes?.averageRating} / 100</h3>
                         <h4>Synopsis</h4>
                         <p>{selectedAnime?.attributes?.synopsis}</p>
-                        <br/>
+                        <br />
                     </div>
                 </Modal>
                 <h3 className="homeTextOther">Trending</h3>
                 <div className="homeAnimeWrapper">
                     <div className="homeAnimeContainer">
-                    <div className="homeAnimeView">
-                        {animeList2.map((anime2) => (
-                            <div onClick={() => setSelectedAnime(anime2)} className="homeAnime" key={anime2.id}>
-                                <img src={anime2.attributes.posterImage.small} alt={anime2.attributes.canonicalTitle} />
-                                    <p>{anime2.attributes.canonicalTitle}</p>
-                                </div>
-                        ))}
-                    </div>
+                        <div className="homeAnimeView">
+                            {loading ? (
+                                <CircularProgress />
+                            ) : (
+                                animeList2.map((anime2) => (
+                                    <div onClick={() => setSelectedAnime(anime2)} className="homeAnime" key={anime2.id}>
+                                        <img src={anime2.attributes.posterImage.small} alt={anime2.attributes.canonicalTitle} />
+                                        <p>{anime2.attributes.canonicalTitle}</p>
+                                    </div>
+                                ))
+                            )}
+                        </div>
                     </div>
                 </div>
                 <Modal open={selectedAnime !== null} onClose={() => setSelectedAnime(null)}>
@@ -179,19 +202,23 @@ const Home = () => {
                         <h1>Synopsis</h1>
                         <h2>{selectedAnime?.attributes?.canonicalTitle}</h2>
                         <p>{selectedAnime?.attributes?.synopsis}</p>
-                        <br/>
+                        <br />
                     </div>
                 </Modal>
                 <h3 className="homeTextOther">Random</h3>
                 <div className="homeAnimeWrapper">
                     <div className="homeAnimeContainer">
                         <div className="homeAnimeView">
-                            {animeList3.map((anime) => (
-                                <div onClick={() => setSelectedAnime(anime)} className="homeAnime" key={anime.id}>
-                                    <img src={anime.attributes.posterImage.small} alt={anime.attributes.canonicalTitle} />
-                                    <p>{anime.attributes.canonicalTitle}</p>
-                                </div>
-                            ))}
+                            {loading ? (
+                                <CircularProgress />
+                            ) : (
+                                animeList3.map((anime) => (
+                                    <div onClick={() => setSelectedAnime(anime)} className="homeAnime" key={anime.id}>
+                                        <img src={anime.attributes.posterImage.small} alt={anime.attributes.canonicalTitle} />
+                                        <p>{anime.attributes.canonicalTitle}</p>
+                                    </div>
+                                ))
+                            )}
                         </div>
                     </div>
                 </div>
@@ -201,7 +228,7 @@ const Home = () => {
                         <h3>Average rating: {selectedAnime?.attributes?.averageRating} / 100</h3>
                         <h4>Synopsis</h4>
                         <p>{selectedAnime?.attributes?.synopsis}</p>
-                        <br/>
+                        <br />
                     </div>
                 </Modal>
             </div>
