@@ -9,7 +9,7 @@ import SignUp from './pages/SignUpPage/signup';
 import Home from './pages/HomePage/home';
 import Recommend from './pages/RecommendationPage/Recommendation';
 import Manga from './pages/MangaPage/Manga';
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, Navigate } from "react-router-dom"
 
 
 function App() {
@@ -22,6 +22,7 @@ function App() {
         <Route path="/home" element={ <Home/> } />
         <Route path="/recommendation" element={ <Recommend/> } />
         <Route path="/manga" element={ <Manga/> } />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>
   );

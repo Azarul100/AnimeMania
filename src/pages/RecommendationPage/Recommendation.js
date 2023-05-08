@@ -1,10 +1,14 @@
 import logo from "../../logo.png";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Recommend.css"
 import ButtonComponent from "../../components/ButtonComponent";
 import { Modal, CircularProgress } from "@mui/material";
 import { Link } from 'react-router-dom';
+import { initializeApp } from "firebase/app";
+
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+
 
 const Recommend = () => {
 
@@ -20,6 +24,22 @@ const Recommend = () => {
     const [animeData5, setAnimeData5] = useState([]);
     const [selectedAnime, setSelectedAnime] = useState(null);
     const [loading, setLoading] = useState(false);  // add loading state
+    const [user, setUser] = useState(null);
+
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyD_ILRvbKB8N_VJpeAPjXI7cmpxAwHNRSk",
+        authDomain: "animemania-3ff92.firebaseapp.com",
+        // databaseURL: "https://animemania-3ff92-default-rtdb.firebaseio.com",
+        projectId: "animemania-3ff92",
+        storageBucket: "animemania-3ff92.appspot.com",
+        messagingSenderId: "908194910975",
+        appId: "1:908194910975:web:0375ec669785052fd132ca",
+        measurementId: "G-09WRZ5G0XW"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
 
 
     // NAV BAR 
@@ -143,7 +163,7 @@ const Recommend = () => {
             setAnimeData4(randomAnimeList4);
         } catch (error) {
             console.log(error);
-        }finally {
+        } finally {
             setLoading(false);  // set loading state to false
         }
     };
@@ -169,6 +189,43 @@ const Recommend = () => {
         }
     };
 
+    useEffect(() => {
+        onAuthStateChanged(auth, (currentUser) => {
+            if (currentUser) {
+                console.log("User is signed in:", currentUser.email);
+                setUser(currentUser);
+            } else {
+                console.log("User is signed out");
+                setUser(null);
+            }
+        });
+    }, [auth]);
+
+    // useEffect(() => {
+    //     // Disable back button if user is logged in
+    //     if (user) {
+    //       const disableBackButton = (e) => {
+    //         e.preventDefault();
+    //         return false;
+    //       };
+    //       window.addEventListener("onbeforeunload", disableBackButton);
+    //       return () => window.removeEventListener("onbeforeunload", disableBackButton);
+    //     }
+    //   }, [user]);
+
+    const handleLogout = () => {
+        auth.signOut()
+            .then(() => {
+                console.log("User signed out successfully");
+                setUser(null); // update the user state
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    };
+
+
+
     return (
         <>
             <div className="recTop">
@@ -186,7 +243,7 @@ const Recommend = () => {
                 </div>
                 <div className="recButtonArea">
                     <Link to="/">
-                        <button className="recLO">Log out</button>
+                        <button onClick={handleLogout} className="recLO">Log out</button>
                     </Link>
                 </div>
             </div>

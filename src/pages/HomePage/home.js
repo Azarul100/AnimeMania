@@ -111,6 +111,17 @@ const Home = () => {
     //     }
     //   }, [user]);
 
+    const handleLogout = () => {
+        auth.signOut()
+            .then(() => {
+                console.log("User signed out successfully");
+                setUser(null); // update the user state
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    };
+
     return (
         <>
             <div className="homeTop">
@@ -128,7 +139,7 @@ const Home = () => {
                 </div>
                 <div className="homeButtonArea">
                     <Link to='/' className="link">
-                        <button className="homeLO">Log out</button>
+                        <button onClick={handleLogout} className="homeLO">Log out</button>
                     </Link>
                 </div>
             </div>
