@@ -112,7 +112,6 @@ const Recommend = () => {
                         <h2>{selectedAnime?.attributes?.canonicalTitle}</h2>
                         <p>{selectedAnime?.attributes?.synopsis}</p>
                         <br/>
-                        <div className="recBtnArea"><ButtonComponent >Add to Watchlist</ButtonComponent></div>
                     </div>
                 </Modal>
                 <br/><br/>
@@ -148,7 +147,6 @@ const Recommend = () => {
                         <h2>{selectedAnime?.attributes?.canonicalTitle}</h2>
                         <p>{selectedAnime?.attributes?.synopsis}</p>
                         <br/>
-                        <div className="recBtnArea"><ButtonComponent >Add to Watchlist</ButtonComponent></div>
                     </div>
                 </Modal>
             </div>
