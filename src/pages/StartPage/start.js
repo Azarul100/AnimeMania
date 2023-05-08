@@ -24,7 +24,7 @@ function Start() {
                 <img src={logo} alt="AnimeMania" className="startLogo" />
             </div>
             <div className="title">
-                <h1>Connect with the anime and manga community and discover new favorites</h1>
+                <h1 className="text">Connect with the anime and manga community and discover new favorites</h1>
             </div>
             <Link to='/login' className="link">
                 <ButtonComponent type="submit" className="loginBtn">
