@@ -1,66 +1,129 @@
 .homeTop {
     display: flex;
-    gap: 30vw;
+    /* gap: 430px; */
+    justify-content: space-between;
 }
 
 .homeTopText {
     display: flex;
-    gap: 20px;
+    gap: 30px;
+    margin-top: 30px;
+    align-items: center;
 }
 
 .homeLogo {
-    height: 100px;
-    width: 10vw;
+    width: 150px;
 }
 
 .homeTextAnime {
-    color: red;
+    color: #B81413;
     text-decoration: underline;
     background: none;
     border: none;
     font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .homeTextRec {
-    color: blue;
+    color: black;
     font-weight: normal;
     background: none;
     border: none;
     font-size: 25px;
+    cursor: pointer;
+}
+
+.homeTextWL {
+    color: black;
+    font-weight: normal;
+    background: none;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
 }
 
 .homeLO 
 {
- color: Black;
- font-weight: normal;
- background: #f5f5f5;
- font-size: 30px;
- height: 75px;
- width: 100%;
+    color: Black;
+    font-weight: normal;
+    background: #f5f5f5;
+    font-size: 20px;
+    height: 50px;
+    width: 100%;
+    border-radius: 8%;
+}
+
+.homeButtonArea
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.homeButtonArea :hover {
+    cursor: pointer;
+}
+
+.wlc {
+  width: 85%;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 
-.homeAnimeWrapper {
-    width: 100%;
-    overflow-x: auto;
-    padding: 0 20px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
+.welcome {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 40px;
+}
+
+.member {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 25px;
+}
+
+.homeBody {
+  width: 85%;
+  margin: 0 auto;
+  padding: 0 20px;
+  overflow: auto;
+}
+
+.wlcText {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.discover {
+  font-size: 30px;
+}
+
+.ultimate {
+  font-size: 20px;
+}
+
+.homeTextOther {
+  text-align: left;
+  padding: 5px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 25px;
 }
 
 .homeAnimeContainer {
     width: 100%;
-    margin: 0 auto;
+    margin: auto auto;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .homeAnimeView {
     display: flex;
     flex-wrap: nowrap;
-    margin-top: -10px;
-    margin-bottom: 20px;
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
+    /* width: 1520px; */
+    height: 400px;
+    overflow-x: scroll;
 }
 
 .homeAnime {
@@ -69,14 +132,21 @@
     background-color: #f5f5f5;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    height: 225px;
+    height: 310px;
+    float: left;
+}
+
+.homeAnime :hover {
+    cursor: pointer;
 }
 
 .homeAnime img {
     display: block;
     margin: 0 auto;
-    width: 130px;
-    height: 175px;
+    width: 195px;
+    height: 262.5px;
+    /* width: 130px;
+    height: 175px; */
     object-fit: cover;
     border-radius: 10px;
 }
@@ -84,12 +154,9 @@
 .homeAnime p {
     margin-top: 10px;
     text-align: center;
+    word-wrap: break-word;
 }
 
-.homeTextOther {
-    margin: 10px;
-    padding: 5px;
-}
 
 .modal {
     position: absolute;
@@ -110,3 +177,13 @@
     align-items: center;
     justify-content: center;
   }
+
+  .homeLine {
+    border-top: 1px solid black;
+    width: 100%;
+  }
+  
+  
+  
+
+  

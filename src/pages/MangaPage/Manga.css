@@ -1,0 +1,96 @@
+.wlTop
+{
+    display: flex;
+    /* gap: 415px; */
+    justify-content: space-between;
+}
+
+.wlTopText
+{
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+    align-items: center;
+}
+
+.wlLogo
+{
+    width: 150px;
+}
+
+.wlTextAnime
+{
+    color: black;
+    font-weight: normal;
+    background: none;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.wlTextRec 
+{
+    color: black;
+    background: none;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.wlTextWL {
+    color: #B81413;
+    font-weight: normal;
+    background: none;
+    border: none;
+    font-size: 25px;
+    text-decoration: underline;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.wlLO 
+{
+    color: Black;
+    font-weight: normal;
+    background: #f5f5f5;
+    font-size: 20px;
+    height: 50px;
+    width: 100%;
+    border-radius: 8%;
+}
+
+.wlButtonArea
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.wlButtonArea :hover {
+    cursor: pointer;
+}
+
+.wlLine {
+    border-top: 1px solid black;
+    width: 100%;
+  }
+
+  .mangaBody {
+    width: 85%;
+    margin: 0 auto;
+    padding: 0 20px;
+    overflow: auto;
+  }
+
+.wlcText {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  
+  .discover {
+    font-size: 30px;
+  }
+  
+  .ultimate {
+    font-size: 20px;
+  }
