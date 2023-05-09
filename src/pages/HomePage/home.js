@@ -100,18 +100,6 @@ const Home = () => {
         });
     }, [auth]);
 
-    // useEffect(() => {
-    //     // Disable back button if user is logged in
-    //     if (user) {
-    //       const disableBackButton = (e) => {
-    //         e.preventDefault();
-    //         return false;
-    //       };
-    //       window.addEventListener("onbeforeunload", disableBackButton);
-    //       return () => window.removeEventListener("onbeforeunload", disableBackButton);
-    //     }
-    //   }, [user]);
-
     const handleLogout = () => {
         auth.signOut()
             .then(() => {
@@ -147,11 +135,6 @@ const Home = () => {
             <br />
             <div>
                 <br></br>
-                {/* <div className ="homeLine"></div>
-            <div className="wlc">
-                <h1 className="welcome">Welcome back!</h1>
-                <h2 className="member">Member Since</h2>
-            </div> */}
             </div>
             <div className="homeLine"></div>
             <br></br>

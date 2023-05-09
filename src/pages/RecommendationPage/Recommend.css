@@ -1,7 +1,6 @@
 .recTop
 {
     display: flex;
-    /* gap: 415px; */
     justify-content: space-between;
 }
 
@@ -100,18 +99,7 @@
     padding: 20px;
 }
 
-/* .recAnimeWrapper {
-    width: 100%;
-    overflow-x: auto;
-    padding: 0 20px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-} */
-
 .recAnimeContainer {
-    /* width: 100%;
-    margin: 0 auto; */
     width: 100%;
     margin: auto auto;
     margin-bottom: 50px;
@@ -123,15 +111,8 @@
 .recAnimeView {
     display: flex;
     flex-wrap: nowrap;
-    /* width: 1520px; */
     height: 400px;
     overflow-x: scroll;
-    /* display: flex;
-    flex-wrap: nowrap;
-    margin-top: -10px;
-    margin-bottom: 20px;
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%); */
 }
 
 .recAnime {
@@ -182,7 +163,6 @@
   {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 20px;
-    /* font-weight: bold; */
   }
 
   .getBtn {

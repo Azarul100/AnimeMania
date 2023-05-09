@@ -1,6 +1,5 @@
 .homeTop {
     display: flex;
-    /* gap: 430px; */
     justify-content: space-between;
 }
 
@@ -121,7 +120,6 @@
 .homeAnimeView {
     display: flex;
     flex-wrap: nowrap;
-    /* width: 1520px; */
     height: 400px;
     overflow-x: scroll;
 }
@@ -145,8 +143,6 @@
     margin: 0 auto;
     width: 195px;
     height: 262.5px;
-    /* width: 130px;
-    height: 175px; */
     object-fit: cover;
     border-radius: 10px;
 }

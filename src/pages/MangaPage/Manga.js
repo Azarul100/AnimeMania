@@ -102,18 +102,6 @@ const Manga = () => {
         });
     }, [auth]);
 
-    // useEffect(() => {
-    //     // Disable back button if user is logged in
-    //     if (user) {
-    //       const disableBackButton = (e) => {
-    //         e.preventDefault();
-    //         return false;
-    //       };
-    //       window.addEventListener("onbeforeunload", disableBackButton);
-    //       return () => window.removeEventListener("onbeforeunload", disableBackButton);
-    //     }
-    //   }, [user]);
-
     const handleLogout = () => {
         auth.signOut()
             .then(() => {
@@ -243,5 +231,3 @@ const Manga = () => {
 };
 
 export default Manga;
-
-

@@ -16,8 +16,6 @@ const Recommend = () => {
     const [animeData, setAnimeData] = useState([]);
     const [animeName2, setAnimeName2] = useState("");
     const [animeData2, setAnimeData2] = useState([]);
-    // const [animeName3, setAnimeName3] = useState("");
-    // const [animeData3, setAnimeData3] = useState([]);
     const [animeName4, setAnimeName4] = useState("");
     const [animeData4, setAnimeData4] = useState([]);
     const [animeName5, setAnimeName5] = useState("");
@@ -32,12 +30,9 @@ const Recommend = () => {
     const [manimeName5, setmAnimeName5] = useState("");
     const [manimeData5, setmAnimeData5] = useState([]);
 
-
-
     const [selectedAnime, setSelectedAnime] = useState(null);
     const [loading, setLoading] = useState(false);  // add loading state
     const [user, setUser] = useState(null);
-
 
     const firebaseConfig = {
         apiKey: "AIzaSyD_ILRvbKB8N_VJpeAPjXI7cmpxAwHNRSk",
@@ -59,7 +54,6 @@ const Recommend = () => {
     const handleAnimeClick = () => {
         setShowAnimeForm(true);
         setShowGenreForm(false);
-        setShowRatingForm(false);
         setShowEpisodesForm(false);
         setShowStatusForm(false);
     }
@@ -68,16 +62,6 @@ const Recommend = () => {
     const handleGenreClick = () => {
         setShowAnimeForm(false);
         setShowGenreForm(true);
-        setShowRatingForm(false);
-        setShowEpisodesForm(false);
-        setShowStatusForm(false);
-    }
-
-    const [showRatingForm, setShowRatingForm] = useState(false);
-    const handleRatingClick = () => {
-        setShowAnimeForm(false);
-        setShowGenreForm(false);
-        setShowRatingForm(true);
         setShowEpisodesForm(false);
         setShowStatusForm(false);
     }
@@ -86,7 +70,6 @@ const Recommend = () => {
     const handleEpisodesClick = () => {
         setShowAnimeForm(false);
         setShowGenreForm(false);
-        setShowRatingForm(false);
         setShowEpisodesForm(true);
         setShowStatusForm(false);
     }
@@ -95,7 +78,6 @@ const Recommend = () => {
     const handleStatusClick = () => {
         setShowAnimeForm(false);
         setShowGenreForm(false);
-        setShowRatingForm(false);
         setShowEpisodesForm(false);
         setShowStatusForm(true);
     }
@@ -106,7 +88,6 @@ const Recommend = () => {
     const handleAnimeClick2 = () => {
         setShowAnimeForm2(true);
         setShowGenreForm2(false);
-        setShowRatingForm2(false);
         setShowEpisodesForm2(false);
         setShowStatusForm2(false);
     }
@@ -115,16 +96,6 @@ const Recommend = () => {
     const handleGenreClick2 = () => {
         setShowAnimeForm2(false);
         setShowGenreForm2(true);
-        setShowRatingForm2(false);
-        setShowEpisodesForm2(false);
-        setShowStatusForm2(false);
-    }
-
-    const [showRatingForm2, setShowRatingForm2] = useState(false);
-    const handleRatingClick2 = () => {
-        setShowAnimeForm2(false);
-        setShowGenreForm2(false);
-        setShowRatingForm2(true);
         setShowEpisodesForm2(false);
         setShowStatusForm2(false);
     }
@@ -133,7 +104,6 @@ const Recommend = () => {
     const handleEpisodesClick2 = () => {
         setShowAnimeForm2(false);
         setShowGenreForm2(false);
-        setShowRatingForm2(false);
         setShowEpisodesForm2(true);
         setShowStatusForm2(false);
     }
@@ -142,12 +112,9 @@ const Recommend = () => {
     const handleStatusClick2 = () => {
         setShowAnimeForm2(false);
         setShowGenreForm2(false);
-        setShowRatingForm2(false);
         setShowEpisodesForm2(false);
         setShowStatusForm2(true);
     }
-
-
 
     // Search functionalities
     // Name
@@ -191,23 +158,6 @@ const Recommend = () => {
             setLoading(false);  // set loading state to false
         }
     };
-
-    // Rating
-    // const handleInputChange3 = (event) => {
-    //     setAnimeName3(event.target.value);
-    // };
-
-    // const handleSubmit3 = async (event) => {
-    //     event.preventDefault();
-    //     try {
-    //         const response3 = await axios.get(`https://kitsu.io/api/edge/anime?filter[averageRating]=${animeName3}`);
-    //         const animeList3 = response3.data.data;
-    //         const randomAnimeList3 = animeList3.sort(() => 0.5 - Math.random()).slice(0, 10);
-    //         setAnimeData3(randomAnimeList3);
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // };
 
     // Episodes
     const handleInputChange4 = (event) => {
@@ -354,18 +304,6 @@ const Recommend = () => {
         });
     }, [auth]);
 
-    // useEffect(() => {
-    //     // Disable back button if user is logged in
-    //     if (user) {
-    //       const disableBackButton = (e) => {
-    //         e.preventDefault();
-    //         return false;
-    //       };
-    //       window.addEventListener("onbeforeunload", disableBackButton);
-    //       return () => window.removeEventListener("onbeforeunload", disableBackButton);
-    //     }
-    //   }, [user]);
-
     const handleLogout = () => {
         auth.signOut()
             .then(() => {
@@ -415,8 +353,7 @@ const Recommend = () => {
                 <div className="recs-filter">
                     <div className="filters">
                         <li onClick={handleAnimeClick}>Name</li>
-                        <li onClick={handleGenreClick}>Genre</li>
-                        {/* <li onClick={handleRatingClick}>Avg Rating</li> */}
+                        <li onClick={handleGenreClick}>Genre</li>          
                         <li onClick={handleEpisodesClick}>Episodes</li>
                         <li onClick={handleStatusClick}>Status</li>
                     </div>
@@ -466,46 +403,7 @@ const Recommend = () => {
                                 <br />
                             </div>
                         </Modal></>
-                )
-                    // : showRatingForm ? (
-                    //     // Add form elements for rating filter here
-                    //     <>
-                    //     <form className="rating-search" onSubmit={handleSubmit3}>
-                    //         <div className="search-bar">
-                    //             <input className="input"
-                    //                 type="text"
-                    //                 placeholder="Enter the anime rating"
-                    //                 id="animeRating"
-                    //                 name="animeRating"
-                    //                 value={animeName3}
-                    //                 onChange={handleInputChange3}
-                    //             />
-                    //         </div>
-                    //         <ButtonComponent className="getBtn" type="submit">Get</ButtonComponent>
-                    //     </form>
-                    //     <div className="recAnimeWrapper">
-                    //         <div className="recAnimeContainer">
-                    //             <br />
-                    //             <div className="recAnimeView">
-                    //                 {animeData3.map((anime3) => (
-                    //                     <div onClick={() => setSelectedAnime(anime3)} className="recAnime" key={anime3.id}>
-                    //                         <img src={anime3.attributes.posterImage.small} alt={anime3.attributes.canonicalTitle} />
-                    //                         <p>{anime3.attributes.canonicalTitle}</p>
-                    //                     </div>
-                    //                 ))}
-                    //             </div>
-                    //         </div>
-                    //     </div>
-                    //     <Modal open={selectedAnime !== null} onClose={() => setSelectedAnime(null)}>
-                    //         <div className="recModal">
-                    //             <h2>{selectedAnime?.attributes?.canonicalTitle}</h2>
-                    //             <p>{selectedAnime?.attributes?.synopsis}</p>
-                    //             <br />
-                    //         </div>
-                    //     </Modal>
-                    //     </>
-                    //   ) 
-                    : showEpisodesForm ? (
+                ) : showEpisodesForm ? (
                         // Add form elements for episodes filter here
                         <>
                             <form className="eps-search" onSubmit={handleSubmit4}>
@@ -647,7 +545,6 @@ const Recommend = () => {
                     <div className="filters">
                         <li onClick={handleAnimeClick2}>Name</li>
                         <li onClick={handleGenreClick2}>Genre</li>
-                        {/* <li onClick={handleRatingClick}>Avg Rating</li> */}
                         <li onClick={handleEpisodesClick2}>Chapters</li>
                         <li onClick={handleStatusClick2}>Status</li>
                     </div>
@@ -697,46 +594,7 @@ const Recommend = () => {
                                 <br />
                             </div>
                         </Modal></>
-                )
-                    // : showRatingForm ? (
-                    //     // Add form elements for rating filter here
-                    //     <>
-                    //     <form className="rating-search" onSubmit={handleSubmit3}>
-                    //         <div className="search-bar">
-                    //             <input className="input"
-                    //                 type="text"
-                    //                 placeholder="Enter the anime rating"
-                    //                 id="animeRating"
-                    //                 name="animeRating"
-                    //                 value={animeName3}
-                    //                 onChange={handleInputChange3}
-                    //             />
-                    //         </div>
-                    //         <ButtonComponent className="getBtn" type="submit">Get</ButtonComponent>
-                    //     </form>
-                    //     <div className="recAnimeWrapper">
-                    //         <div className="recAnimeContainer">
-                    //             <br />
-                    //             <div className="recAnimeView">
-                    //                 {animeData3.map((anime3) => (
-                    //                     <div onClick={() => setSelectedAnime(anime3)} className="recAnime" key={anime3.id}>
-                    //                         <img src={anime3.attributes.posterImage.small} alt={anime3.attributes.canonicalTitle} />
-                    //                         <p>{anime3.attributes.canonicalTitle}</p>
-                    //                     </div>
-                    //                 ))}
-                    //             </div>
-                    //         </div>
-                    //     </div>
-                    //     <Modal open={selectedAnime !== null} onClose={() => setSelectedAnime(null)}>
-                    //         <div className="recModal">
-                    //             <h2>{selectedAnime?.attributes?.canonicalTitle}</h2>
-                    //             <p>{selectedAnime?.attributes?.synopsis}</p>
-                    //             <br />
-                    //         </div>
-                    //     </Modal>
-                    //     </>
-                    //   ) 
-                    : showEpisodesForm2 ? (
+                ) : showEpisodesForm2 ? (
                         // Add form elements for episodes filter here
                         <>
                             <form className="eps-search" onSubmit={mhandleSubmit4}>
@@ -876,82 +734,3 @@ const Recommend = () => {
 };
 
 export default Recommend;
-
-
-// import React, { useState } from "react";
-// import axios from "axios";
-// import logo from "../../logo.png";
-// import "./Recommend.css"
-
-// const Recommend = () => {
-//   const [animeName, setAnimeName] = useState("");
-//   const [animeData, setAnimeData] = useState([]);
-
-//   const handleInputChange = (event) => {
-//     setAnimeName(event.target.value);
-//   };
-
-//   const handleSubmit = async (event) => {
-//     event.preventDefault();
-//     try {
-//       const response = await axios.get(`https://kitsu.io/api/edge/anime?filter[text]=${animeName}`);
-//       const animeList = response.data.data;
-//       const randomAnimeList = animeList.sort(() => 0.5 - Math.random()).slice(0, 5);
-//       setAnimeData(randomAnimeList);
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-
-//   const animePage = () => {
-//     window.location.href = '/home';
-//   }; 
-
-//   const startPage = () => {
-//     window.location.href = '/';
-//   };
-
-//   const wlPage = () => {
-//     window.location.href = '/watchlist';
-//   };
-
-//   return (
-//     <>
-//       <div className="recTop">
-//         <img src={logo} alt="AnimeMania" className="recLogo" />
-//         <div className="recTopText">
-//           <button onClick = {animePage} className="recTextAnime">Anime</button>
-//           <button className="recTextRec">Recommendations</button>
-//           <button onClick = {wlPage} className="recTextWL">Watchlist</button>
-//         </div>
-//         <div className="recButtonArea"><button onClick = {startPage} className="recLO">Log out</button></div>
-//       </div>
-//       <br/>
-//       <div className ="recLine"></div>
-//       <br/>
-//       <form onSubmit={handleSubmit}>
-//         <label htmlFor="animeName">Enter an anime name:</label>
-//         <input
-//           type="text"
-//           id="animeName"
-//           name="animeName"
-//           value={animeName}
-//           onChange={handleInputChange}
-//         />
-//         <button type="submit">Get Recommendations</button>
-//       </form>
-//       <div className="animeList">
-        // {animeData.map((anime) => (
-        //   <div key={anime.id}>
-        //     <img src={anime.attributes.posterImage.small} alt={anime.attributes.titles.en_jp} />
-        //     <h3>{anime.attributes.titles.en_jp}</h3>
-        //   </div>
-        // ))}
-//       </div>
-//     </>
-//   );
-// };
-
-// export default Recommend;
-
-
