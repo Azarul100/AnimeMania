@@ -69,4 +69,11 @@
   .signupLink a:hover {
     text-decoration: underline;
   }
+
+  .errorMessage
+  {
+    color: Red;
+    font-weight: bold;
+    font-size: 30px;
+  }
   

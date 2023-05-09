@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../../logo.png";
 import "./login.css";
 import ButtonComponent from "../../components/ButtonComponent";
@@ -10,16 +10,25 @@ function Login() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(user => {
+      if (user) {
+        window.location.href = "/home";
+      }
+    });
+    return unsubscribe;
+  }, [auth]);
 
   const handleLogin = (event) => {
     event.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential);
-        window.location.href = "/home";
       })
       .catch((error) => {
-        console.log(error);
+        setErrorMessage("Incorrect Email or Password");
       });
   };
 
@@ -27,7 +36,6 @@ function Login() {
   const loginWithGoogle = () => {
     signInWithPopup(auth, new GoogleAuthProvider()).then((userCredential) => {
       console.log(userCredential);
-      window.location.href = "/home";
     });
   };
 
@@ -65,11 +73,15 @@ function Login() {
         <div className="signupLink">
           Don't have an account? <a href="/signup">Sign up</a>
         </div>
+        <br/>
+        {errorMessage && (
+          <div className="errorMessage">
+            {errorMessage}
+          </div>
+        )}
       </form>
     </>
   );
 }
 
 export default Login;
-
-
