@@ -92,6 +92,7 @@ const Home = () => {
             if (currentUser) {
                 console.log("User is signed in:", currentUser.email);
                 setUser(currentUser);
+                console.log(currentUser.email)
             } else {
                 console.log("User is signed out");
                 setUser(null);

@@ -10,6 +10,7 @@ import Home from './pages/HomePage/home';
 import Recommend from './pages/RecommendationPage/Recommendation';
 import Manga from './pages/MangaPage/Manga';
 import { Routes, Route, Navigate } from "react-router-dom"
+import Protected from './protected';
 
 
 function App() {
@@ -19,9 +20,9 @@ function App() {
         <Route path="/" element={ <Start/> } />
         <Route path="/login" element={ <Login/> } />
         <Route path="/signup" element={ <SignUp/> } />
-        <Route path="/home" element={ <Home/> } />
-        <Route path="/recommendation" element={ <Recommend/> } />
-        <Route path="/manga" element={ <Manga/> } />
+        <Route path="/home" element={<Protected><Home/></Protected> } />
+        <Route path="/recommendation" element={ <Protected><Recommend/></Protected> } />
+        <Route path="/manga" element={ <Protected><Manga/></Protected> } />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>
