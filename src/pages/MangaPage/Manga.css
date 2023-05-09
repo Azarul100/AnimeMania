@@ -94,3 +94,58 @@
   .ultimate {
     font-size: 20px;
   }
+
+  .mTextOther {
+    text-align: left;
+    padding: 5px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 25px;
+  }
+  
+  .mAnimeContainer {
+      width: 100%;
+      margin: auto auto;
+      margin-bottom: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  
+  .mAnimeView {
+      display: flex;
+      flex-wrap: nowrap;
+      /* width: 1520px; */
+      height: 400px;
+      overflow-x: scroll;
+  }
+  
+  .mAnime {
+      margin-right: 20px;
+      padding: 20px;
+      background-color: #f5f5f5;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      height: 310px;
+      float: left;
+  }
+  
+  .mAnime :hover {
+      cursor: pointer;
+  }
+  
+  .mAnime img {
+      display: block;
+      margin: 0 auto;
+      width: 195px;
+      height: 262.5px;
+      /* width: 130px;
+      height: 175px; */
+      object-fit: cover;
+      border-radius: 10px;
+  }
+  
+  .mAnime p {
+      margin-top: 10px;
+      text-align: center;
+      word-wrap: break-word;
+  }

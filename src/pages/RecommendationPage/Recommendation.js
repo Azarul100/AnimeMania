@@ -22,6 +22,18 @@ const Recommend = () => {
     const [animeData4, setAnimeData4] = useState([]);
     const [animeName5, setAnimeName5] = useState("");
     const [animeData5, setAnimeData5] = useState([]);
+
+    const [manimeName, setmAnimeName] = useState("");
+    const [manimeData, setmAnimeData] = useState([]);
+    const [manimeName2, setmAnimeName2] = useState("");
+    const [manimeData2, setmAnimeData2] = useState([]);
+    const [manimeName4, setmAnimeName4] = useState("");
+    const [manimeData4, setmAnimeData4] = useState([]);
+    const [manimeName5, setmAnimeName5] = useState("");
+    const [manimeData5, setmAnimeData5] = useState([]);
+
+
+
     const [selectedAnime, setSelectedAnime] = useState(null);
     const [loading, setLoading] = useState(false);  // add loading state
     const [user, setUser] = useState(null);
@@ -87,6 +99,55 @@ const Recommend = () => {
         setShowEpisodesForm(false);
         setShowStatusForm(true);
     }
+
+    //Manga Navbar
+
+    const [showAnimeForm2, setShowAnimeForm2] = useState(false);
+    const handleAnimeClick2 = () => {
+        setShowAnimeForm2(true);
+        setShowGenreForm2(false);
+        setShowRatingForm2(false);
+        setShowEpisodesForm2(false);
+        setShowStatusForm2(false);
+    }
+
+    const [showGenreForm2, setShowGenreForm2] = useState(false);
+    const handleGenreClick2 = () => {
+        setShowAnimeForm2(false);
+        setShowGenreForm2(true);
+        setShowRatingForm2(false);
+        setShowEpisodesForm2(false);
+        setShowStatusForm2(false);
+    }
+
+    const [showRatingForm2, setShowRatingForm2] = useState(false);
+    const handleRatingClick2 = () => {
+        setShowAnimeForm2(false);
+        setShowGenreForm2(false);
+        setShowRatingForm2(true);
+        setShowEpisodesForm2(false);
+        setShowStatusForm2(false);
+    }
+
+    const [showEpisodesForm2, setShowEpisodesForm2] = useState(false);
+    const handleEpisodesClick2 = () => {
+        setShowAnimeForm2(false);
+        setShowGenreForm2(false);
+        setShowRatingForm2(false);
+        setShowEpisodesForm2(true);
+        setShowStatusForm2(false);
+    }
+
+    const [showStatusForm2, setShowStatusForm2] = useState(false);
+    const handleStatusClick2 = () => {
+        setShowAnimeForm2(false);
+        setShowGenreForm2(false);
+        setShowRatingForm2(false);
+        setShowEpisodesForm2(false);
+        setShowStatusForm2(true);
+    }
+
+
 
     // Search functionalities
     // Name
@@ -188,6 +249,98 @@ const Recommend = () => {
             setLoading(false);  // set loading state to false
         }
     };
+
+
+    //Manga Input Below
+    
+    const mhandleInputChange = (event) => {
+        setmAnimeName(event.target.value);
+    };
+
+    const mhandleSubmit = async (event) => {
+        event.preventDefault();
+        setLoading(true);
+        try {
+            const mresponse = await axios.get(`https://kitsu.io/api/edge/manga?filter[text]=${manimeName}`);
+            const manimeList = mresponse.data.data;
+            const mrandomAnimeList = manimeList.sort(() => 0.5 - Math.random()).slice(0, 10);
+            setmAnimeData(mrandomAnimeList);
+        } catch (error) {
+            console.log(error);
+        }
+        finally {
+            setLoading(false);  // set loading state to false
+        }
+    };
+
+    // Genre
+    const mhandleInputChange2 = (event) => {
+        setmAnimeName2(event.target.value);
+    };
+
+    const mhandleSubmit2 = async (event) => {
+        event.preventDefault();
+        setLoading(true);
+        try {
+            const mresponse2 = await axios.get(`https://kitsu.io/api/edge/manga?filter[categories]=${manimeName2}&page[limit]=20`);
+            const manimeList2 = mresponse2.data.data;
+            const mrandomAnimeList2 = manimeList2.sort(() => 0.5 - Math.random()).slice(0, 10);
+            setmAnimeData2(mrandomAnimeList2);
+        } catch (error) {
+            console.log(error);
+        }
+        finally {
+            setLoading(false);  // set loading state to false
+        }
+    };
+
+
+    // Episodes
+    const mhandleInputChange4 = (event) => {
+        setmAnimeName4(event.target.value);
+    };
+
+    const mhandleSubmit4 = async (event) => {
+        event.preventDefault();
+        setLoading(true);
+        try {
+            const mresponse4 = await axios.get(`https://kitsu.io/api/edge/manga?filter[chapterCount]=${manimeName4}`);
+            const manimeList4 = mresponse4.data.data;
+            const mrandomAnimeList4 = manimeList4.sort(() => 0.5 - Math.random()).slice(0, 10);
+            setmAnimeData4(mrandomAnimeList4);
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setLoading(false);  // set loading state to false
+        }
+    };
+
+    
+
+    // Status
+    const mhandleInputChange5 = (event) => {
+        setmAnimeName5(event.target.value);
+    };
+
+    const mhandleSubmit5 = async (event) => {
+        event.preventDefault();
+        setLoading(true);
+        try {
+            const mresponse5 = await axios.get(`https://kitsu.io/api/edge/manga?filter[status]=${manimeName5}`);
+            const manimeList5 = mresponse5.data.data;
+            const mrandomAnimeList5 = manimeList5.sort(() => 0.5 - Math.random()).slice(0, 10);
+            setmAnimeData5(mrandomAnimeList5);
+        } catch (error) {
+            console.log(error);
+        }
+        finally {
+            setLoading(false);  // set loading state to false
+        }
+    };
+
+
+    //Manga Above
+
 
     useEffect(() => {
         onAuthStateChanged(auth, (currentUser) => {
@@ -403,7 +556,6 @@ const Recommend = () => {
                             </form><div className="recAnimeWrapper">
                                 <div className="recAnimeContainer">
                                     <br />
-                                    Copy code
                                     <div className="recAnimeView">
                                         {loading ? (
                                             <CircularProgress />
@@ -467,7 +619,218 @@ const Recommend = () => {
                             </Modal></>
                     )
                 }
-            </div>
+
+                {/*Manga Textfield Below*/}
+
+
+                <div className="recs-filter">
+                    <div className="filters">
+                        <li onClick={handleAnimeClick2}>Name</li>
+                        <li onClick={handleGenreClick2}>Genre</li>
+                        {/* <li onClick={handleRatingClick}>Avg Rating</li> */}
+                        <li onClick={handleEpisodesClick2}>Chapters</li>
+                        <li onClick={handleStatusClick2}>Status</li>
+                    </div>
+                </div>
+                {showGenreForm2 ? (
+                    <><form className="genre-form" onSubmit={mhandleSubmit2}>
+                        {/* Add form elements for genre filter here */}
+                        <div className="search-bar">
+                            <input className="input"
+                                type="text"
+                                placeholder="Enter a manga genre(s)"
+                                id="manimeGenre"
+                                name="manimeGenre"
+                                value={manimeName2}
+                                onChange={mhandleInputChange2} />
+                        </div>
+                        <ButtonComponent className="getBtn" type="submit">Get</ButtonComponent>
+                    </form>
+                        <div className="recAnimeWrapper">
+                            <div className="recAnimeContainer">
+                                <br />
+                                <div className="recAnimeView">
+                                    {loading ? (
+                                        <CircularProgress />
+                                    ) : (
+                                        manimeData2.map((manime2) => (
+                                            <div onClick={() => setSelectedAnime(manime2)} className="recAnime" key={manime2.id}>
+                                                <img src={manime2.attributes.posterImage.small} alt={manime2.attributes.canonicalTitle} />
+                                                <p>{manime2.attributes.canonicalTitle}</p>
+                                            </div>
+                                        ))
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                        <Modal open={selectedAnime !== null} onClose={() => setSelectedAnime(null)}>
+                            <div className="recModal">
+                                <h2>{selectedAnime?.attributes?.canonicalTitle}</h2>
+                                <h3>Average rating: {selectedAnime?.attributes?.averageRating} / 100</h3>
+                                <h4>Synopsis</h4>
+                                <p>{selectedAnime?.attributes?.synopsis}</p>
+                                <br />
+                            </div>
+                        </Modal></>
+                )
+                    // : showRatingForm ? (
+                    //     // Add form elements for rating filter here
+                    //     <>
+                    //     <form className="rating-search" onSubmit={handleSubmit3}>
+                    //         <div className="search-bar">
+                    //             <input className="input"
+                    //                 type="text"
+                    //                 placeholder="Enter the anime rating"
+                    //                 id="animeRating"
+                    //                 name="animeRating"
+                    //                 value={animeName3}
+                    //                 onChange={handleInputChange3}
+                    //             />
+                    //         </div>
+                    //         <ButtonComponent className="getBtn" type="submit">Get</ButtonComponent>
+                    //     </form>
+                    //     <div className="recAnimeWrapper">
+                    //         <div className="recAnimeContainer">
+                    //             <br />
+                    //             <div className="recAnimeView">
+                    //                 {animeData3.map((anime3) => (
+                    //                     <div onClick={() => setSelectedAnime(anime3)} className="recAnime" key={anime3.id}>
+                    //                         <img src={anime3.attributes.posterImage.small} alt={anime3.attributes.canonicalTitle} />
+                    //                         <p>{anime3.attributes.canonicalTitle}</p>
+                    //                     </div>
+                    //                 ))}
+                    //             </div>
+                    //         </div>
+                    //     </div>
+                    //     <Modal open={selectedAnime !== null} onClose={() => setSelectedAnime(null)}>
+                    //         <div className="recModal">
+                    //             <h2>{selectedAnime?.attributes?.canonicalTitle}</h2>
+                    //             <p>{selectedAnime?.attributes?.synopsis}</p>
+                    //             <br />
+                    //         </div>
+                    //     </Modal>
+                    //     </>
+                    //   ) 
+                    : showEpisodesForm2 ? (
+                        // Add form elements for episodes filter here
+                        <>
+                            <form className="eps-search" onSubmit={mhandleSubmit4}>
+                                <div className="search-bar">
+                                    <input className="input"
+                                        type="text"
+                                        placeholder="Enter the number of chapters"
+                                        id="manimeEps"
+                                        name="manimeEps"
+                                        value={manimeName4}
+                                        onChange={mhandleInputChange4} />
+                                </div>
+                                <ButtonComponent className="getBtn" type="submit">Get</ButtonComponent>
+                            </form><div className="recAnimeWrapper">
+                                <div className="recAnimeContainer">
+                                    <br />
+                                    <div className="recAnimeView">
+                                        {loading ? (
+                                            <CircularProgress />
+                                        ) : (
+                                            manimeData4.map((manime4) => (
+                                                <div onClick={() => setSelectedAnime(manime4)} className="recAnime" key={manime4.id}>
+                                                    <img src={manime4.attributes.posterImage.small} alt={manime4.attributes.canonicalTitle} />
+                                                    <p>{manime4.attributes.canonicalTitle}</p>
+                                                </div>
+                                            ))
+                                        )}
+                                    </div>
+                                </div>
+                            </div><Modal open={selectedAnime !== null} onClose={() => setSelectedAnime(null)}>
+                                <div className="recModal">
+                                    <h2>{selectedAnime?.attributes?.canonicalTitle}</h2>
+                                    <h3>Average rating: {selectedAnime?.attributes?.averageRating} / 100</h3>
+                                    <h4>Synopsis</h4>
+                                    <p>{selectedAnime?.attributes?.synopsis}</p>
+                                    <br />
+                                </div>
+                            </Modal></>
+                    ) : showStatusForm2 ? (
+                        // Add form elements for status filter here
+                        <>
+                            <form className="stat-search" onSubmit={mhandleSubmit5}>
+                                <div className="search-bar">
+                                    <input className="input"
+                                        type="text"
+                                        placeholder="Enter the manga status: Current | Finished | TBA | Unreleased | Upcoming"
+                                        id="manimeStat"
+                                        name="manimeStat"
+                                        value={manimeName5}
+                                        onChange={mhandleInputChange5} />
+                                </div>
+                                <ButtonComponent className="getBtn" type="submit">Get</ButtonComponent>
+                            </form><div className="recAnimeWrapper">
+                                <div className="recAnimeContainer">
+                                    <br />
+                                    
+                                    <div className="recAnimeView">
+                                        {loading ? (
+                                            <CircularProgress />
+                                        ) : (
+                                            manimeData5.map((manime5) => (
+                                                <div onClick={() => setSelectedAnime(manime5)} className="recAnime" key={manime5.id}>
+                                                    <img src={manime5.attributes.posterImage.small} alt={manime5.attributes.canonicalTitle} />
+                                                    <p>{manime5.attributes.canonicalTitle}</p>
+                                                </div>
+                                            ))
+                                        )}
+                                    </div>
+                                </div>
+                            </div><Modal open={selectedAnime !== null} onClose={() => setSelectedAnime(null)}>
+                                <div className="recModal">
+                                    <h2>{selectedAnime?.attributes?.canonicalTitle}</h2>
+                                    <h3>Average rating: {selectedAnime?.attributes?.averageRating} / 100</h3>
+                                    <h4>Synopsis</h4>
+                                    <p>{selectedAnime?.attributes?.synopsis}</p>
+                                    <br />
+                                </div>
+                            </Modal></>
+                    ) : (
+                        <><form className="recs-search" onSubmit={mhandleSubmit}>
+                            <div className="search-bar">
+                                <input className="input"
+                                    type="text"
+                                    placeholder="Enter a manga name"
+                                    id="manimeName"
+                                    name="manimeName"
+                                    value={manimeName}
+                                    onChange={mhandleInputChange} />
+                            </div>
+                            <ButtonComponent className="getBtn" type="submit">Get</ButtonComponent>
+                        </form>
+                            <div className="recAnimeWrapper">
+                                <div className="recAnimeContainer">
+                                    <br />
+                                    <div className="recAnimeView">
+                                        {loading ? (
+                                            <CircularProgress />
+                                        ) : (
+                                            manimeData.map((manime) => (
+                                                <div onClick={() => setSelectedAnime(manime)} className="recAnime" key={manime.id}>
+                                                    <img src={manime.attributes.posterImage.small} alt={manime.attributes.canonicalTitle} />
+                                                    <p>{manime.attributes.canonicalTitle}</p>
+                                                </div>
+                                            ))
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
+                            <Modal open={selectedAnime !== null} onClose={() => setSelectedAnime(null)}>
+                                <div className="recModal">
+                                    <h2>{selectedAnime?.attributes?.canonicalTitle}</h2>
+                                    <h3>Average rating: {selectedAnime?.attributes?.averageRating} / 100</h3>
+                                    <h4>Synopsis</h4>
+                                    <p>{selectedAnime?.attributes?.synopsis}</p>
+                                    <br />
+                                </div>
+                            </Modal></>
+                    )
+                }            </div>
         </>
     );
 };
