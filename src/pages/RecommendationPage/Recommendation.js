@@ -252,7 +252,7 @@ const Recommend = () => {
 
 
     //Manga Input Below
-    
+
     const mhandleInputChange = (event) => {
         setmAnimeName(event.target.value);
     };
@@ -315,7 +315,7 @@ const Recommend = () => {
         }
     };
 
-    
+
 
     // Status
     const mhandleInputChange5 = (event) => {
@@ -441,7 +441,12 @@ const Recommend = () => {
                                 <div className="recAnimeView">
                                     {loading ? (
                                         <CircularProgress />
-                                    ) : (
+                                    ) : animeData2.length === 0 ? (
+                                            <>
+                                                <br/>
+                                                <p>No animes currently displayed</p>
+                                            </>
+                                        ) : (
                                         animeData2.map((anime2) => (
                                             <div onClick={() => setSelectedAnime(anime2)} className="recAnime" key={anime2.id}>
                                                 <img src={anime2.attributes.posterImage.small} alt={anime2.attributes.canonicalTitle} />
@@ -520,7 +525,12 @@ const Recommend = () => {
                                     <div className="recAnimeView">
                                         {loading ? (
                                             <CircularProgress />
-                                        ) : (
+                                        ) : animeData4.length === 0 ? (
+                                            <>
+                                                <br/>
+                                                <p>No animes currently displayed</p>
+                                            </>
+                                        ) :(
                                             animeData4.map((anime4) => (
                                                 <div onClick={() => setSelectedAnime(anime4)} className="recAnime" key={anime4.id}>
                                                     <img src={anime4.attributes.posterImage.small} alt={anime4.attributes.canonicalTitle} />
@@ -559,6 +569,11 @@ const Recommend = () => {
                                     <div className="recAnimeView">
                                         {loading ? (
                                             <CircularProgress />
+                                        ) : animeData5.length === 0 ? (
+                                            <>
+                                                <br/>
+                                                <p>No animes currently displayed</p>
+                                            </>
                                         ) : (
                                             animeData5.map((anime5) => (
                                                 <div onClick={() => setSelectedAnime(anime5)} className="recAnime" key={anime5.id}>
@@ -597,6 +612,11 @@ const Recommend = () => {
                                     <div className="recAnimeView">
                                         {loading ? (
                                             <CircularProgress />
+                                        ) : animeData.length === 0 ? (
+                                            <>
+                                                <br/>
+                                                <p>No animes currently displayed</p>
+                                            </>
                                         ) : (
                                             animeData.map((anime) => (
                                                 <div onClick={() => setSelectedAnime(anime)} className="recAnime" key={anime.id}>
@@ -652,7 +672,12 @@ const Recommend = () => {
                                 <div className="recAnimeView">
                                     {loading ? (
                                         <CircularProgress />
-                                    ) : (
+                                    ) : manimeData2.length === 0 ? (
+                                            <>
+                                                <br/>
+                                                <p>No mangas currently displayed</p>
+                                            </>
+                                        ) : (
                                         manimeData2.map((manime2) => (
                                             <div onClick={() => setSelectedAnime(manime2)} className="recAnime" key={manime2.id}>
                                                 <img src={manime2.attributes.posterImage.small} alt={manime2.attributes.canonicalTitle} />
@@ -731,10 +756,15 @@ const Recommend = () => {
                                     <div className="recAnimeView">
                                         {loading ? (
                                             <CircularProgress />
+                                        ) : manimeData4.length === 0 ? (
+                                            <>
+                                                <br/>
+                                                <p>No mangas currently displayed</p>
+                                            </>
                                         ) : (
                                             manimeData4.map((manime4) => (
                                                 <div onClick={() => setSelectedAnime(manime4)} className="recAnime" key={manime4.id}>
-                                                    <img src={manime4.attributes.posterImage.small} alt={manime4.attributes.canonicalTitle} />
+                                                    <img src={manime4.attributes.posterImage?.small} alt={manime4.attributes.canonicalTitle} />
                                                     <p>{manime4.attributes.canonicalTitle}</p>
                                                 </div>
                                             ))
@@ -767,10 +797,15 @@ const Recommend = () => {
                             </form><div className="recAnimeWrapper">
                                 <div className="recAnimeContainer">
                                     <br />
-                                    
+
                                     <div className="recAnimeView">
                                         {loading ? (
                                             <CircularProgress />
+                                        ) : manimeData5.length === 0 ? (
+                                            <>
+                                                <br/>
+                                                <p>No mangas currently displayed</p>
+                                            </>
                                         ) : (
                                             manimeData5.map((manime5) => (
                                                 <div onClick={() => setSelectedAnime(manime5)} className="recAnime" key={manime5.id}>
@@ -809,6 +844,11 @@ const Recommend = () => {
                                     <div className="recAnimeView">
                                         {loading ? (
                                             <CircularProgress />
+                                        ) : manimeData.length === 0 ? (
+                                            <>
+                                                <br/>
+                                                <p>No mangas currently displayed</p>
+                                            </>
                                         ) : (
                                             manimeData.map((manime) => (
                                                 <div onClick={() => setSelectedAnime(manime)} className="recAnime" key={manime.id}>
