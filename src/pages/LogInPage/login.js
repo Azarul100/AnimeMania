@@ -35,6 +35,7 @@ function Login() {
   // Login with Google
   const loginWithGoogle = () => {
     signInWithPopup(auth, new GoogleAuthProvider()).then((userCredential) => {
+      window.location.href = "/home";
       console.log(userCredential);
     });
   };
